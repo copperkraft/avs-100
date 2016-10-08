@@ -1,0 +1,62 @@
+textarea{
+    width: 20em;
+    height: 444px;
+    color: lightgray;
+    background-color: black;
+    border-style: none;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 0;
+    resize: none;
+}
+
+textarea:focus{
+    outline: none;
+}
+input:focus{
+    outline: none;
+}
+
+table{
+    width: 100%;
+}
+
+body{
+    background-color: black;
+}
+p {
+    font-size: 12pt;
+    font-family: monospace;
+    color: lightgray;
+    font-weight: bold;
+    margin: 0;
+}
+input {
+    width: 60px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 12pt;
+    color: lightgray;
+    margin: 5px;
+    border-style: double;
+    border-color: lightgray;
+    background-color: black;
+}
+.Block {
+
+    border-color: lightgray;
+    border-style: double;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+}
+.subBlock {
+
+    min-width: 110px;
+    border-color: lightgray;
+    border-style: double;
+    padding: 5px;
+    margin: 5px;
+}

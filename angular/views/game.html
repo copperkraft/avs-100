@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="../css/style.css" rel="stylesheet">
+    <title>AVS-100</title>
+    <meta charset="utf-8">
+    <script src="../angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="coreCtrl" >
+<div class="Block">
+    <div class="subBlock">
+        <p id="info">SIMULATOR AVS-100</p>
+    </div>
+    <div class="subBlock">
+        <input type="button" value="start" ng-disabled="played" ng-click="play()">
+        <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
+        <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
+    </div>
+    <div class="subBlock" ng-show="proc.awaitingInput">
+        <input type="text" ng-model="consoleInput">
+        <input type="button" value="input" ng-click="input()">
+    </div>
+</div>
+<div class="Block">
+    <div style="float: left">
+        <div class="subBlock">
+            <p>SANDBOX<br>MODE</p>
+        </div>
+        <div class="subBlock">
+            <p>REGISTERS<br>AND FLAGS</p>
+            <p ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+        </div>
+    </div>
+    <div style="float: left">
+        <div class="subBlock">
+            <table>
+                <tr >
+                    <td style="vertical-align: top">
+                        <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
+                            <span style="color: {{isFalse($index)? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
+                                {{$index | strNum}}:
+                            </span>
+                        </p>
+                    </td>
+                    <td style="vertical-align: top">
+                        <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="Block">
+    <div class="subBlock">
+        <p>CONSOLE OUTPUT:</p>
+        <p ng-repeat="string in proc.output track by $index">{{string}}</p>
+    </div>
+    <div class="subBlock">
+        <p>ERROR LOG:</p>
+    </div>
+</div>
+<br>
+
+
+<!--Module-->
+<script defer src="../js/mainModule.js"></script>
+<!--Controllers-->
+<script defer src="../js/controllers/sandboxCtrl.js"></script>
+<!--Core-->
+<script defer src="../js/services/coreConstructor.js"></script>
+<script defer src="../js/services/functionsDescriptions.js"></script>
+
+</body>
+
+</html>
