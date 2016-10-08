@@ -21,12 +21,6 @@ app.controller('sandboxCtrl', function ($scope, $timeout, coreConstructor, funct
         $scope.proc.execute();
         $timeout($scope.player, 200);
     };
-    $scope.consoleInput = '';
-    $scope.input = function () {
-        $scope.proc.input = $scope.consoleInput;
-        $scope.consoleInput = '';
-        $scope.proc.execute();
-    };
 
     $scope.player = function () {
         if ($scope.played === true) {

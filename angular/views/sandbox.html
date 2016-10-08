@@ -16,7 +16,7 @@
         <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
         <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
     </div>
-    <div class="subBlock" ng-show="proc.awaitingInput">
+    <div class="subBlock" ng-show="proc.awaitingInput" ng-controller="consoleInput">
         <input type="text" ng-model="consoleInput">
         <input type="button" value="input" ng-click="input()">
     </div>
@@ -37,13 +37,14 @@
                 <tr >
                     <td style="vertical-align: top">
                         <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
-                            <span style="color: {{isFalse($index)? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
+                            <span style="color: {{isFalse($index) ? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
                                 {{$index | strNum}}:
                             </span>
                         </p>
                     </td>
                     <td style="vertical-align: top">
-                        <textarea ng-keyup="updateProgram()" ng-model="codeText" id="textArea"></textarea>
+                        <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
+                        </textarea>
                     </td>
                 </tr>
             </table>
@@ -55,9 +56,6 @@
         <p>CONSOLE OUTPUT:</p>
         <p ng-repeat="string in proc.output track by $index">{{string}}</p>
     </div>
-    <div class="subBlock">
-        <p>ERROR LOG:</p>
-    </div>
 </div>
 <br>
 
@@ -67,9 +65,12 @@
 <!--Controllers-->
 <script defer src="../js/controllers/sandboxCtrl.js"></script>
 <script defer src="../js/controllers/consoleInput.js"></script>
+<script defer src="../js/controllers/consoleOutput.js"></script>
 <!--Core-->
 <script defer src="../js/services/coreConstructor.js"></script>
 <script defer src="../js/services/functionsDescriptions.js"></script>
+<!--Filters-->
+<script defer src="../js/filters.js"></script>
 
 </body>
 
