@@ -7,6 +7,7 @@
     <script src="../angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="sandboxCtrl" >
+
 <div class="Block">
     <div class="subBlock">
         <p id="info">SIMULATOR AVS-100</p>
@@ -16,15 +17,15 @@
         <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
         <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
     </div>
-    <div class="subBlock" ng-show="proc.awaitingInput" ng-controller="consoleInput">
-        <input type="text" ng-model="consoleInput">
-        <input type="button" value="input" ng-click="input()">
+    <div class="subBlock" ng-controller="tasksInputOutput">
+        <p ng-repeat="inputValue in inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
     </div>
 </div>
 <div class="Block">
     <div style="float: left">
         <div class="subBlock">
-            <p>SANDBOX<br>MODE</p>
+            <p>GAME MODE</p>
+            <p>level:{{level}}</p>
         </div>
         <div class="subBlock">
             <p>REGISTERS<br>AND FLAGS</p>
@@ -34,10 +35,10 @@
     <div style="float: left">
         <div class="subBlock">
             <table>
-                <tr >
+                <tr>
                     <td style="vertical-align: top">
                         <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
-                            <span style="color: {{isFalse($index)? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
+                            <span style="color: {{isFalse($index) ? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
                                 {{$index | strNum}}:
                             </span>
                         </p>
@@ -51,27 +52,18 @@
         </div>
     </div>
 </div>
-<div class="Block">
-    <div class="subBlock">
-        <p>CONSOLE OUTPUT:</p>
-        <p ng-repeat="string in proc.output track by $index">{{string}}</p>
-    </div>
-    <div class="subBlock">
-        <p>ERROR LOG:</p>
-    </div>
-</div>
-<br>
 
 
 <!--Module-->
-<script defer src="../js/mainModule.js"></script>
+<script  src="../js/mainModule.js"></script>
 <!--Controllers-->
-<script defer src="../js/controllers/sandboxCtrl.js"></script>
+<script  src="../js/controllers/sandboxCtrl.js"></script>
+<script  src="../js/controllers/tasksInput.js"></script>
 <!--Core-->
-<script defer src="../js/services/coreConstructor.js"></script>
-<script defer src="../js/services/functionsDescriptions.js"></script>
+<script  src="../js/services/coreConstructor.js"></script>
+<script  src="../js/services/functionsDescriptions.js"></script>
 <!--Filters-->
-<script defer src="../js/filters.js"></script>
+<script  src="../js/filters.js"></script>
 
 </body>
 

@@ -4,11 +4,15 @@ app.controller('sandboxCtrl', function ($scope, $timeout, coreConstructor, funct
         if ($scope.proc.started) {
             $scope.proc.reset();
             $scope.played = false;
+            $scope.stop.stopEvents.forEach(function (stopEvent) {
+                stopEvent();
+            });
         } else {
             $scope.codeText = '';
             $scope.updateProgram();
         }
     };
+    $scope.stop.stopEvents = [];
     $scope.step = function () {
         if ($scope.played) {
             $scope.played = false;

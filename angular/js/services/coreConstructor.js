@@ -24,6 +24,7 @@ app.factory('coreConstructor', function () {
                 this.started = false;
                 this.waiting = false;
                 this.awaitingInput = false;
+                this.inputEvent = [];
             }
             ProcessorNode.prototype = {
                 reset: function () {
@@ -42,6 +43,8 @@ app.factory('coreConstructor', function () {
                     this.awaitingInput = false;
                 },
                 execute: function () {
+                    var i,
+                        len;
                     this.started = true;
                     this.operationsData.instructionSet[this.counter].call(this);
                     if (!this.waiting) {
@@ -49,6 +52,9 @@ app.factory('coreConstructor', function () {
                     }
                     this.check();
                     if (this.operationsData.instructionSet[this.counter].type === 'INP') {
+                        for (i = 0, len = this.inputEvent.length; i < len; i++) {
+                            this.inputEvent[i]();
+                        }
                         this.awaitingInput = true;
                     }
                 },

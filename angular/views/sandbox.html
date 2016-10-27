@@ -17,7 +17,7 @@
         <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
     </div>
     <div class="subBlock" ng-show="proc.awaitingInput" ng-controller="consoleInput">
-        <input type="text" ng-model="consoleInput">
+        <input type="text" ng-model="inputText">
         <input type="button" value="input" ng-click="input()">
     </div>
 </div>
@@ -65,7 +65,6 @@
 <!--Controllers-->
 <script defer src="../js/controllers/sandboxCtrl.js"></script>
 <script defer src="../js/controllers/consoleInput.js"></script>
-<script defer src="../js/controllers/consoleOutput.js"></script>
 <!--Core-->
 <script defer src="../js/services/coreConstructor.js"></script>
 <script defer src="../js/services/functionsDescriptions.js"></script>
