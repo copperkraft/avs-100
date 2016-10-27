@@ -40,13 +40,10 @@ var functionsArray = [
         this.waiting = !this.waiting;
     }),
     new OperationConstructor('INP', function (to) {
-        if (!parseInt(this.input, 10)) {
-            this.waiting = true;
-            this.awaitingInput = true; //TODO удалить эту переменную из логики, заменить прямыми проверками
-        } else {
-            this.registers[to] = parseInt(this.input, 10);
+        this.waiting = true;
+        if (parseInt(this.input, 10)) {
+            this.registers[to] = parseInt(this.inputReader(), 10);
             this.waiting = false;
-            this.awaitingInput = false;
             this.input = null;
         }
     }, 'r'),

@@ -7,8 +7,9 @@ app.controller('tasksInputOutput', function ($scope) {
     });
     $scope.proc.inputEvent.push(function () {
         if ($scope.inputArray.length <= $scope.currentInput) {
-            $scope.step();
+            $scope.stop();
         }
+        $scope.proc.waiting = false;
         $scope.proc.input = $scope.inputArray[$scope.currentInput];
         $scope.currentInput += 1;
     });

@@ -1,8 +1,17 @@
 app.controller('consoleInput', function ($scope) {
     $scope.inputText = '';
+    $scope.awaitingInput = false;
+    $scope.stop.stopEvents.push(function () {
+        $scope.inputText = '';
+    });
     $scope.input = function () {
         $scope.proc.input = $scope.inputText;
         $scope.inputText = '';
-        $scope.proc.execute();
+        $scope.awaitingInput = false;
+        $scope.step();
     };
+    $scope.proc.inputEvent.push(function () {
+        $scope.proc.waiting = true;
+        $scope.awaitingInput = true;
+    });
 });

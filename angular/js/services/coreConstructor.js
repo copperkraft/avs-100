@@ -19,7 +19,7 @@ app.factory('coreConstructor', function () {
                     this.registers['R' + i] = 0;
                 }
                 this.counter = 0;
-                this.input = [];
+                this.input = null;
                 this.output = [];
                 this.started = false;
                 this.waiting = false;
@@ -38,9 +38,11 @@ app.factory('coreConstructor', function () {
                     this.counter = 0;
                     this.output = [];
                     this.input = null;
+                    this.inputReader = function () {
+                        return this.input;
+                    };
                     this.started = false;
                     this.waiting = false;
-                    this.awaitingInput = false;
                 },
                 execute: function () {
                     var i,
@@ -55,7 +57,6 @@ app.factory('coreConstructor', function () {
                         for (i = 0, len = this.inputEvent.length; i < len; i++) {
                             this.inputEvent[i]();
                         }
-                        this.awaitingInput = true;
                     }
                 },
                 check: function () {
