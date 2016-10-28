@@ -10,7 +10,7 @@ app.controller('consoleInput', function ($scope) {
         $scope.awaitingInput = false;
         $scope.step();
     };
-    $scope.proc.inputEvent.push(function () {
+    $scope.proc.inputEvents.push(function () {
         $scope.proc.waiting = true;
         $scope.awaitingInput = true;
     });

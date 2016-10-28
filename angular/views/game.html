@@ -18,18 +18,28 @@
         <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
     </div>
     <div class="subBlock" ng-controller="tasksInputOutput">
-        <p ng-repeat="inputValue in inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
+        <div class="column">
+            <p class="head">in</p>
+            <p class="number" ng-repeat="inputValue in inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
+        </div>
+        <div  class="column">
+            <p class="head">need</p>
+            <p class="number" ng-repeat="expectation in expectations track by $index" >{{expectation}}</p>
+        </div>
+        <div  class="column">
+            <p class="head">out</p>
+            <p class="number" ng-repeat="expectation in proc.output track by $index" >{{expectation}}</p>
+        </div>
     </div>
 </div>
 <div class="Block">
     <div style="float: left">
         <div class="subBlock">
             <p>GAME MODE</p>
-            <p>level:{{level}}</p>
         </div>
         <div class="subBlock">
             <p>REGISTERS<br>AND FLAGS</p>
-            <p ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+            <p  ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
         </div>
     </div>
     <div style="float: left">
@@ -52,7 +62,10 @@
         </div>
     </div>
 </div>
-
+<div class="Block2" ng-controller="tasksInputOutput">
+    <p>Уровень: {{level}}</p>
+    <p>{{description}}</p>
+</div>
 
 <!--Module-->
 <script  src="../js/mainModule.js"></script>

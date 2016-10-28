@@ -24,9 +24,7 @@ table{
 }
 
 body{
-    width: 1000px;
     background-color: black;
-    margin: 40px auto;
 }
 p {
     font-size: 12pt;
@@ -42,26 +40,42 @@ input {
     font-size: 12pt;
     color: lightgray;
     margin: 5px;
-    border-style: solid;
-    border-color: lightgray;
+    border: 2px solid lightgray;
     background-color: black;
 }
 input:hover {
-
+    background-color: #202020;
 }
 .Block {
-
-    border-color: lightgray;
-    border-style: solid;
+    border: 2px solid lightgray;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+}
+.Block2 {
+    max-width: 450px;
+    border: 2px solid lightgray;
     margin: 5px;
     padding: 5px;
     float: left;
 }
 .subBlock {
-
     min-width: 110px;
-    border-color: lightgray;
-    border-style: solid;
+    border: 2px solid lightgray;
     padding: 5px;
     margin: 5px;
+}
+.column {
+    vertical-align: top;
+    width: 56px;
+    display: inline-block;
+    border: 2px solid lightgray;
+    margin: 5px;
+}
+.column .number{
+    padding-left: 10px;
+    border-top: 2px solid lightgray;
+}
+.column .head{
+    text-align: center;
 }

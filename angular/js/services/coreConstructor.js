@@ -20,11 +20,11 @@ app.factory('coreConstructor', function () {
                 }
                 this.counter = 0;
                 this.input = null;
-                this.output = [];
+                this.output = []; //TODO привести вывод в песочнице и в заданиях к одному виду
                 this.started = false;
                 this.waiting = false;
-                this.awaitingInput = false;
-                this.inputEvent = [];
+                this.inputEvents = [];
+                this.outputEvents = [];
             }
             ProcessorNode.prototype = {
                 reset: function () {
@@ -54,8 +54,8 @@ app.factory('coreConstructor', function () {
                     }
                     this.check();
                     if (this.operationsData.instructionSet[this.counter].type === 'INP') {
-                        for (i = 0, len = this.inputEvent.length; i < len; i++) {
-                            this.inputEvent[i]();
+                        for (i = 0, len = this.inputEvents.length; i < len; i++) {
+                            this.inputEvents[i]();
                         }
                     }
                 },

@@ -34,14 +34,20 @@ var functionsArray = [
         this.counter = (Number(this.registers[to] || to)) - 1;
     }, 'r|v'),
     new OperationConstructor('OUT', function (to) {
-        this.output.push(this.registers[to] || to);
+        if (this.registers[to] === 0) {
+            var out = 0;
+        } else {
+            var out = this.registers[to] || to;
+        }
+        this.output.push(out);
+        this.outputEvents.forEach(function (outputEvent) { outputEvent(out); });
     }, 'r|v'),
     new OperationConstructor('SLP', function () {
         this.waiting = !this.waiting;
     }),
     new OperationConstructor('INP', function (to) {
         this.waiting = true;
-        if (parseInt(this.input, 10)) {
+        if (parseInt(this.input, 10) || parseInt(this.input, 10) === 0) {
             this.registers[to] = parseInt(this.inputReader(), 10);
             this.waiting = false;
             this.input = null;
