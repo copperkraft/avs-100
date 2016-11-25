@@ -1,7 +1,7 @@
 app.controller('consoleInput', function ($scope) {
     $scope.inputText = '';
     $scope.awaitingInput = false;
-    $scope.stop.stopEvents.push(function () {
+    $scope.proc.resetEvents.push(function () {
         $scope.inputText = '';
     });
     $scope.input = function () {

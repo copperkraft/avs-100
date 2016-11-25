@@ -2,7 +2,7 @@ app.factory('coreConstructor', function () {
     var cores = {};
     return {
         processor: function (name, registerCount) {
-            if (cores[name]) {
+            if (cores[name]) { //если процессор уже создан, возвращать имеюшийся объект процессора
                 return cores[name];
             }
             function ProcessorNode(registerCount) {
@@ -20,15 +20,18 @@ app.factory('coreConstructor', function () {
                 }
                 this.counter = 0;
                 this.input = null;
-                this.output = []; //TODO привести вывод в песочнице и в заданиях к одному виду
+                this.output = []; //TODO вывод должен храниться вне процессора же
+                this.locked = false; //TODO добавить использование блокировки процессора в случае ошибки
                 this.started = false;
                 this.waiting = false;
                 this.inputEvents = [];
                 this.outputEvents = [];
+                this.resetEvents = [];
             }
             ProcessorNode.prototype = {
-                reset: function () {
-                    var i;
+                reset: function () { //обнуление состояния процессора
+                    var i,
+                        len;
                     this.registers = {
                         CF: 0
                     };
@@ -38,18 +41,19 @@ app.factory('coreConstructor', function () {
                     this.counter = 0;
                     this.output = [];
                     this.input = null;
-                    this.inputReader = function () {
-                        return this.input;
-                    };
                     this.started = false;
                     this.waiting = false;
+                    this.locked = false;
+                    for (i = 0, len = this.resetEvents.length; i < len; i++) {
+                        this.resetEvents[i]();
+                    }
                 },
                 execute: function () {
                     var i,
                         len;
                     this.started = true;
                     this.operationsData.instructionSet[this.counter].call(this);
-                    if (!this.waiting) {
+                    if (!this.waiting && !this.locked) {
                         this.counter++;
                     }
                     this.check();

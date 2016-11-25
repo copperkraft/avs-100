@@ -7,10 +7,10 @@
     <script src="../angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="sandboxCtrl" >
-
 <div class="Block">
     <div class="subBlock">
         <p id="info">SIMULATOR AVS-100</p>
+        <p>{{test}}</p>
     </div>
     <div class="subBlock">
         <input type="button" value="start" ng-disabled="played" ng-click="play()">
@@ -20,11 +20,11 @@
     <div class="subBlock" ng-controller="tasksInputOutput">
         <div class="column">
             <p class="head">in</p>
-            <p class="number" ng-repeat="inputValue in inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
+            <p class="number" ng-repeat="inputValue in levels[complete.level].inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
         </div>
         <div  class="column">
             <p class="head">need</p>
-            <p class="number" ng-repeat="expectation in expectations track by $index" >{{expectation}}</p>
+            <p class="number" ng-repeat="expectation in levels[complete.level].expectations track by $index" >{{expectation}}</p>
         </div>
         <div  class="column">
             <p class="head">out</p>
@@ -62,9 +62,10 @@
         </div>
     </div>
 </div>
-<div class="Block2" ng-controller="tasksInputOutput">
-    <p>Уровень: {{level}}</p>
-    <p>{{description}}</p>
+
+<div class="Block2" ng-controller="levelator">
+    <p>Уровень:<span ng-show="progress.level > 1" ng-click="decrease()"><</span>{{progress.level}}<span ng-show="progress.complete[progress.level]" ng-click="increase()">></span></p>
+    <p>{{levels[progress.level].description}}</p>
 </div>
 
 <!--Module-->
@@ -75,8 +76,10 @@
 <!--Core-->
 <script  src="../js/services/coreConstructor.js"></script>
 <script  src="../js/services/functionsDescriptions.js"></script>
+<script src="../js/services/levelDeliverySRV.js"></script>
 <!--Filters-->
 <script  src="../js/filters.js"></script>
+
 
 </body>
 

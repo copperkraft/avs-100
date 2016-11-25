@@ -49,7 +49,7 @@ var functionsArray = [
     new OperationConstructor('INP', function (to) {
         this.waiting = true;
         if (parseInt(this.input, 10) || parseInt(this.input, 10) === 0) {
-            this.registers[to] = parseInt(this.inputReader(), 10);
+            this.registers[to] = parseInt(this.input, 10);
             this.waiting = false;
             this.input = null;
         }
