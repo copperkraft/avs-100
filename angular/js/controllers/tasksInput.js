@@ -1,6 +1,6 @@
 app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
     $scope.levels = levelSRV; //добавляем объект, полученный из сервиса выдачи уровней в область видимости
-    $scope.complete = $progress;
+    $scope.levelProgress = $progress;
 
     $scope.currentInput = 0;  //стартовое значение "указателя" ввода
     $scope.proc.resetEvents.push(function () { //подписываем обнуление указателя ввода на событие перезагрузки
@@ -26,15 +26,18 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
                     return;
                 }
             }
-            $progress.complete[$progress.level] = true;
-            $progress.save();
+            $progress.finished[$progress.level] = true;
+            localStorage.progress = JSON.stringify($progress); //запись в локальный прогресс. перенести бы его в серивис
+            // TODO пользователи
         }
     });
 })
-    .factory('$progress', function () {
-        var progress = 1;
-
-        return  {level: 1};
+    .factory('$progress', function () {  //объект медиатор, хранящий прогресс
+        var progress =  {level: 1, finished: {}}; //загрузка объекта по умалчанию
+        if (localStorage.progress) { //если у нас есть сохраненный прогресс, то загружаем его
+            progress = JSON.parse(localStorage.progress);
+        }
+        return progress;
     })
     .controller('levelator', function ($scope, $progress, levelSRV) {
         $scope.levels = levelSRV; //добавляем объект, полученный из сервиса выдачи уровней в область видимости
@@ -42,11 +45,13 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
         $scope.decrease = function () {
             $scope.proc.reset();
             $progress.level--;
+            localStorage.progress = JSON.stringify($progress);
             $scope.currentInput = 0;
         };
         $scope.increase = function () {
             $scope.proc.reset();
             $progress.level++;
+            localStorage.progress = JSON.stringify($progress);
             $scope.currentInput = 0;
         };
     });

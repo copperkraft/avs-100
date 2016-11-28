@@ -20,11 +20,11 @@
     <div class="subBlock" ng-controller="tasksInputOutput">
         <div class="column">
             <p class="head">in</p>
-            <p class="number" ng-repeat="inputValue in levels[complete.level].inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
+            <p class="number" ng-repeat="inputValue in levels[levelProgress.level].inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
         </div>
         <div  class="column">
             <p class="head">need</p>
-            <p class="number" ng-repeat="expectation in levels[complete.level].expectations track by $index" >{{expectation}}</p>
+            <p class="number" ng-repeat="expectation in levels[levelProgress.level].expectations track by $index" >{{expectation}}</p>
         </div>
         <div  class="column">
             <p class="head">out</p>
@@ -64,7 +64,7 @@
 </div>
 
 <div class="Block2" ng-controller="levelator">
-    <p>Уровень:<span ng-show="progress.level > 1" ng-click="decrease()"><</span>{{progress.level}}<span ng-show="progress.complete[progress.level]" ng-click="increase()">></span></p>
+    <p>Уровень:<span ng-show="progress.level > 1" ng-click="decrease()"><</span>{{progress.level}}<span ng-show="progress.finished[progress.level]" ng-click="increase()">></span></p>
     <p>{{levels[progress.level].description}}</p>
 </div>
 

@@ -76,7 +76,7 @@ app.factory('coreConstructor', function () {
                         }
                         if (this.registers['R' + i] > 255) {
                             this.registers['R' + i] = this.registers['R' + i] - 256;
-                            this.this.registers.CF = 1;
+                            this.registers.CF = 1;
                         }
                     }
                 }
