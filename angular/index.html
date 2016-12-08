@@ -4,8 +4,28 @@
     <link href="css/style2.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>AVS-100</title>
+    <script src="angular.min.js"></script>
 </head>
-<body>
-<div class="menu"></div>
+<body ng-app="myApp" ng-controller="mainCtrl">
+<ul class="menu">
+    <li class="menu-link" ng-repeat="item in menuItems" ng-class="{disabled: !item.enabled}">
+        <a href="{{item.urlState}}">{{item.name}}</a>
+    </li>
+</ul>
+
+
+
+
+<script  src="js/mainModule.js"></script>
+<!--Controllers-->
+<script  src="js/controllers/mainCtrl.js"></script>
+<script  src="js/controllers/editorCtrl.js"></script>
+<script  src="js/controllers/tasksInput.js"></script>
+<!--Core-->
+<script  src="js/services/coreConstructor.js"></script>
+<script  src="js/services/functionsDescriptions.js"></script>
+<script src="js/services/levelDeliverySRV.js"></script>
+<!--Filters-->
+<script  src="js/filters.js"></script>
 </body>
 </html>

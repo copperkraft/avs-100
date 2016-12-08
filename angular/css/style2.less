@@ -1,0 +1,43 @@
+@pageBackground: #fff;
+@menuBackground: #ddd;
+@tabBackground: rgba(204, 204, 204, 0.65);
+@menuTextColor: #111;
+
+
+
+
+body {
+  background: @pageBackground;
+}
+
+.menu {
+  font-size: 24px;
+  font-family: "Lucida Console","Arial",sans-serif;
+  padding: 0.5em;
+  width: 20em;
+  margin: 10% auto;
+  background: @menuBackground;
+  .menu-link {
+    a {
+      display: block;
+      height: 1em;
+      text-decoration: none;
+      color: @menuTextColor;
+      padding: 0.5em;
+    }
+    cursor: pointer;
+    list-style-type: none;
+    margin-bottom: 0.5em;
+    background: @tabBackground;
+    height: 2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      background: darken(@tabBackground, 10%);
+    }
+    &.disabled a {
+      color: lighten(@menuTextColor, 40%);
+    }
+  }
+}

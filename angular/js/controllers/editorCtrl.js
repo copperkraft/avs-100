@@ -60,7 +60,7 @@ app.controller('sandboxCtrl', function ($scope, $timeout, coreConstructor, funct
     };
     $scope.proc = coreConstructor.processor('intel', 16);
     if (window.localStorage) {
-        $scope.codeText = window.localStorage.textArea;
+        $scope.codeText = window.localStorage.textArea || '//код писать сюда';
         $scope.updateProgram();
     } else {
         $scope.codeText = '';
