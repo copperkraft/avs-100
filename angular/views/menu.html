@@ -1,0 +1,5 @@
+<ul class="menu">
+    <li class="menu-link" ng-repeat="item in menuItems" ng-class="{disabled: !item.enabled}">
+        <a href="{{item.urlState}}">{{item.name}}</a>
+    </li>
+</ul>

@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <link href="css/style2.css" rel="stylesheet">
-    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
     <title>AVS-100</title>
+    <meta charset="utf-8">
     <script src="angular.min.js"></script>
-    <script src="angular-route.min.js"></script>
 </head>
-<body ng-app="myApp">
-<a href="http://localhost:63342/AVS-100/angular/question">хуй</a>
-<ng-view></ng-view>
+
+
 
 
 <script  src="js/mainModule.js"></script>
-
 <!--Controllers-->
 <script  src="js/controllers/mainCtrl.js"></script>
 <script  src="js/controllers/editorCtrl.js"></script>
-<script  src="js/controllers/tasksInput.js"></script>
 <script  src="js/controllers/consoleInput.js"></script>
 <!--Core-->
 <script  src="js/services/coreConstructor.js"></script>
@@ -25,7 +21,9 @@
 <script src="js/services/levelDeliverySRV.js"></script>
 <!--Filters-->
 <script  src="js/filters.js"></script>
-<!--Router-->
-<script src="js/router.js"></script>
+
+<body ng-app="myApp"  ng-include="'views/sandbox.html'" >
+
 </body>
+
 </html>

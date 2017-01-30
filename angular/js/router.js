@@ -3,14 +3,14 @@
  */
 angular.module('myApp', ["ngRoute"])
     .config(function ($routeProvider) {
-        $routeProvider.when('/question',
+        $routeProvider.when('/',
             {
-                templateUrl: 'views/question.html',
-                controller: 'QuestionController'
+                templateUrl: 'views/menu.html',
+                controller: 'mainCtrl'
             });
-        $routeProvider.when('/answer',
+        $routeProvider.when('/sandbox',
             {
-                templateUrl: 'views/answer.html',
-                controller: 'AnswerController'
+                templateUrl: 'views/game.html',
+                controller: 'sandboxCtrl'
             });
     });
