@@ -1,31 +1,31 @@
 /**
  * Created by Владимир on 01.12.2016.
  */
-app.controller('mainCtrl', function ($scope) {
+app.controller('menuCtrl', function ($scope) {
     $scope.menuItems = [
         {
             name: 'Вход',
-            urlState: '#',
-            enabled: false
+            urlState: '#/login',
+            enabled: true
         }, {
             name: 'Настройки',
-            urlState: '#',
+            urlState: '#/settings',
             enabled: false
         }, {
             name: 'Обучение',
-            urlState: 'views/game.html',
+            urlState: '#/game',
             enabled: true
         }, {
             name: 'Игра',
-            urlState: '#',
+            urlState: '#/game',
             enabled: false
         }, {
             name: 'Песочница',
-            urlState: 'views/sandbox.html',
+            urlState: '#/sandbox',
             enabled: true
         }, {
             name: 'Справочник',
-            urlState: '#',
+            urlState: '#/reference',
             enabled: false
         }
     ];
