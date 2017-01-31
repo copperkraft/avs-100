@@ -17,5 +17,15 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/game.html',
             controller: 'sandboxCtrl'
         });
+    $routeProvider.when('/settings',
+        {
+            templateUrl: 'views/settings.html',
+            controller: 'settingsCtrl'
+        });
+    $routeProvider.when('/reference',
+        {
+            templateUrl: 'views/reference.html',
+            controller: 'referenceCtrl'
+        });
     $routeProvider.otherwise({redirectTo: '/menu'});
 });

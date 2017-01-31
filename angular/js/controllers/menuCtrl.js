@@ -10,15 +10,11 @@ app.controller('menuCtrl', function ($scope) {
         }, {
             name: 'Настройки',
             urlState: '#/settings',
-            enabled: false
+            enabled: true
         }, {
             name: 'Обучение',
             urlState: '#/game',
             enabled: true
-        }, {
-            name: 'Игра',
-            urlState: '#/game',
-            enabled: false
         }, {
             name: 'Песочница',
             urlState: '#/sandbox',
@@ -26,7 +22,7 @@ app.controller('menuCtrl', function ($scope) {
         }, {
             name: 'Справочник',
             urlState: '#/reference',
-            enabled: false
+            enabled: true
         }
     ];
 });

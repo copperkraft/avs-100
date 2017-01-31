@@ -8,10 +8,10 @@ app.filter('strNum', function () {
 });
 app.filter('hex', function () {
     return function (param) {
-        //var output = parseInt(param, 10).toString(2);
-        /*if (param < 16) {
-         output = '0' + output;
-         }*/
-        return parseInt(param, 10).toString(10);
+        var output = parseInt(param, 10).toString(2);
+        if (param < 16) {
+            output = '0' + output;
+        }
+        return output;
     };
 });
