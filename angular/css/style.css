@@ -1,9 +1,140 @@
-.disabled {
-  color: #777777;
-}
 body {
   margin: 0;
-  background: #fff;
+}
+body.dark {
+  background-color: #111;
+}
+body.dark .menu {
+  background-color: #333;
+}
+body.dark .menu .menu-link {
+  background-color: #444;
+}
+body.dark .menu .menu-link a {
+  color: #888;
+}
+body.dark .menu .menu-link:hover {
+  background-color: #444, rgba(125, 125, 125, 0.2);
+}
+body.dark .menu .menu-link.disabled a {
+  background-color: #444, rgba(125, 125, 125, 0.7);
+}
+body.dark .editor {
+  color: #888;
+  background-color: #111;
+}
+body.dark .editor textarea {
+  color: #888;
+  background-color: #111;
+}
+body.dark .editor input {
+  border: 2px solid #333;
+  background-color: #444;
+  color: #888;
+}
+body.dark .editor input:hover {
+  background-color: #444, rgba(125, 125, 125, 0.2);
+}
+body.dark .editor .Block,
+body.dark .editor .Block2,
+body.dark .editor .subBlock {
+  border: 2px solid #333;
+}
+body.dark .editor .error {
+  color: red;
+}
+body.dark .editor .onIndex {
+  background-color: #111, rgba(125, 125, 125, 0.1);
+}
+body.light {
+  background-color: #fff;
+}
+body.light .menu {
+  background-color: #747474;
+}
+body.light .menu .menu-link {
+  background-color: #bbb;
+}
+body.light .menu .menu-link a {
+  color: #111;
+}
+body.light .menu .menu-link:hover {
+  background-color: #bbb, rgba(125, 125, 125, 0.2);
+}
+body.light .menu .menu-link.disabled a {
+  background-color: #bbb, rgba(125, 125, 125, 0.7);
+}
+body.light .editor {
+  color: #111;
+  background-color: #fff;
+}
+body.light .editor textarea {
+  color: #111;
+  background-color: #fff;
+}
+body.light .editor input {
+  border: 2px solid #747474;
+  background-color: #bbb;
+  color: #111;
+}
+body.light .editor input:hover {
+  background-color: #bbb, rgba(125, 125, 125, 0.2);
+}
+body.light .editor .Block,
+body.light .editor .Block2,
+body.light .editor .subBlock {
+  border: 2px solid #747474;
+}
+body.light .editor .error {
+  color: red;
+}
+body.light .editor .onIndex {
+  background-color: #fff, rgba(125, 125, 125, 0.1);
+}
+body.water {
+  background-color: #171c22;
+}
+body.water .menu {
+  background-color: #238;
+}
+body.water .menu .menu-link {
+  background-color: #4f5bff;
+}
+body.water .menu .menu-link a {
+  color: #ddf;
+}
+body.water .menu .menu-link:hover {
+  background-color: #4f5bff, rgba(125, 125, 125, 0.2);
+}
+body.water .menu .menu-link.disabled a {
+  background-color: #4f5bff, rgba(125, 125, 125, 0.7);
+}
+body.water .editor {
+  color: #ddf;
+  background-color: #171c22;
+}
+body.water .editor textarea {
+  color: #ddf;
+  background-color: #171c22;
+}
+body.water .editor input {
+  border: 2px solid #238;
+  background-color: #4f5bff;
+  color: #ddf;
+}
+body.water .editor input:hover {
+  background-color: #4f5bff, rgba(125, 125, 125, 0.2);
+}
+body.water .editor .Block,
+body.water .editor .Block2,
+body.water .editor .subBlock {
+  border: 2px solid #238;
+}
+body.water .editor .error {
+  color: red;
+}
+body.water .editor .onIndex {
+  background-color: #171c22, rgba(125, 125, 125, 0.1);
 }
 .menu {
   font-size: 24px;
@@ -11,42 +142,21 @@ body {
   padding: 0.5em;
   width: 20em;
   margin: 10% auto;
-  background: #ddd;
 }
 .menu .menu-link {
   cursor: pointer;
   list-style-type: none;
   margin-bottom: 0.5em;
-  background: rgba(204, 204, 204, 0.65);
   height: 2em;
 }
 .menu .menu-link a {
   display: block;
   height: 1em;
   text-decoration: none;
-  color: #111;
   padding: 0.5em;
 }
 .menu .menu-link:last-child {
   margin-bottom: 0;
-}
-.menu .menu-link:hover {
-  background: rgba(166, 166, 166, 0.65);
-}
-.menu .menu-link.disabled a {
-  background: rgba(179, 179, 179, 0.65);
-}
-.menu .menu-link.dark {
-  background: black;
-}
-.menu .menu-link.dark a {
-  color: white;
-}
-.menu .menu-link.light {
-  background: white;
-}
-.menu .menu-link.light a {
-  color: black;
 }
 .editor {
   min-height: 700px;
@@ -104,66 +214,11 @@ body {
   vertical-align: top;
   width: 56px;
   display: inline-block;
-  border: 2px solid lightgray;
   margin: 5px;
 }
 .editor .column .number {
   padding-left: 10px;
-  border-top: 2px solid lightgray;
 }
 .editor .column .head {
   text-align: center;
-}
-.editor.light {
-  color: black;
-  background-color: white;
-}
-.editor.light textarea {
-  color: black;
-  background: white;
-}
-.editor.light input {
-  border: 2px solid gray;
-  background-color: gainsboro;
-}
-.editor.light input:hover {
-  background-color: lightgray;
-}
-.editor.light .Block,
-.editor.light .Block2,
-.editor.light .subBlock {
-  border: 2px solid gray;
-}
-.editor.light .error {
-  color: red;
-}
-.editor.light .onIndex {
-  background: lightgray;
-}
-.editor.dark {
-  color: gainsboro;
-  background-color: black;
-}
-.editor.dark textarea {
-  color: gainsboro;
-  background: black;
-}
-.editor.dark input {
-  color: gainsboro;
-  border: 2px solid lightgray;
-  background-color: black;
-}
-.editor.dark input:hover {
-  background-color: #2e2e2e;
-}
-.editor.dark .Block,
-.editor.dark .Block2,
-.editor.dark .subBlock {
-  border: 2px solid lightgray;
-}
-.editor.dark .error {
-  color: darkred;
-}
-.editor.dark .onIndex {
-  background: dimgray;
 }

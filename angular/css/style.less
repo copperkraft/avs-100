@@ -1,22 +1,78 @@
+@water-background: #171c22;
+@water-border: #238;
+@water-button: #4f5bff;
+@water-text: #ddf;
+
+@light-background: #fff;
+@light-border: #747474;
+@light-button: #bbb;
+@light-text: #111;
+
+@dark-background: #111;
+@dark-border: #333;
+@dark-button: #444;
+@dark-text: #888;
 
 
 
 
-@pageBackground: #fff;
-@menuBackground: #ddd;
-@tabBackground: rgba(204, 204, 204, 0.65);
-@baseTextColor: #111;
-
-
-.disabled {
-  color: lighten(@baseTextColor, 40%);
-}
 
 
 body {
   margin: 0;
-  background: @pageBackground;
+  .theme(dark);
+  .theme(light);
+  .theme(water);
 }
+.theme(@theme) {
+  &.@{theme} {
+    background-color: e("@{@{theme}-background}");
+    .menu {
+      background-color: e("@{@{theme}-border}");
+      .menu-link {
+        a {
+          color: e("@{@{theme}-text}");
+        }
+        background-color: e("@{@{theme}-button}");
+        &:hover {
+          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.2);
+        }
+        &.disabled a {
+          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.7);
+        }
+      }
+    }
+
+    .editor{
+      color: e("@{@{theme}-text}");
+      textarea {
+        color: e("@{@{theme}-text}");
+        background-color: e("@{@{theme}-background}");
+      }
+      input {
+        border: 2px solid e("@{@{theme}-border}");
+        background-color: e("@{@{theme}-button}");
+        color: e("@{@{theme}-text}");
+        &:hover {
+          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.2);
+        }
+      }
+      .Block , .Block2 , .subBlock {
+        border: 2px solid e("@{@{theme}-border}");
+      }
+      background-color: e("@{@{theme}-background}");
+      .error {
+        color: red;
+      }
+      .onIndex {
+        background-color: e("@{@{theme}-background}"), rgba(125, 125, 125, 0.1);
+      }
+    }
+  }
+
+
+}
+
 
 .menu {
   font-size: 24px;
@@ -24,43 +80,20 @@ body {
   padding: 0.5em;
   width: 20em;
   margin: 10% auto;
-  background: @menuBackground;
   .menu-link {
     a {
       display: block;
       height: 1em;
       text-decoration: none;
-      color: @baseTextColor;
       padding: 0.5em;
     }
     cursor: pointer;
     list-style-type: none;
     margin-bottom: 0.5em;
-    background: @tabBackground;
     height: 2em;
     &:last-child {
       margin-bottom: 0;
     }
-    &:hover {
-      background: darken(@tabBackground, 15%);
-    }
-    &.disabled a {
-      background: darken(@tabBackground, 10%);
-    }
-
-    &.dark {
-      background: black;
-      a {
-        color: white;
-      }
-    }
-    &.light {
-      background: white;
-      a {
-        color: black;
-      }
-    }
-  ;
   }
 }
 
@@ -120,65 +153,12 @@ body {
     vertical-align: top;
     width: 56px;
     display: inline-block;
-    border: 2px solid lightgray;
     margin: 5px;
     .number{
       padding-left: 10px;
-      border-top: 2px solid lightgray;
     }
     .head{
       text-align: center;
-    }
-  }
-
-  &.light {
-    color: black;
-    textarea {
-      color: black;
-      background: white;
-    }
-    input {
-      border: 2px solid gray;
-      background-color: gainsboro;
-      &:hover {
-        background-color: lightgray;
-      }
-    }
-    .Block , .Block2 , .subBlock {
-      border: 2px solid gray;
-    }
-    background-color: white;
-    .error {
-      color: red;
-    }
-    .onIndex {
-      background: lightgray;
-    }
-  }
-
-  &.dark {
-    color: gainsboro;
-    textarea {
-      color: gainsboro;
-      background: black;
-    }
-    input {
-      color: gainsboro;
-      border: 2px solid lightgray;
-      background-color: black;
-      &:hover {
-        background-color: #2e2e2e;
-      }
-    }
-    .Block , .Block2 , .subBlock {
-      border: 2px solid lightgray;
-    }
-    background-color: black;
-    .error {
-      color: darkred;
-    }
-    .onIndex {
-      background: dimgray;
     }
   }
 }

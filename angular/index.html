@@ -8,8 +8,8 @@
     <script src="angular-route.min.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="mainCtrl">
-<ng-view></ng-view>
+<body ng-app="myApp" ng-controller="mainCtrl" ng-class="themes[currentTheme]">
+<ng-view ></ng-view>
 
 
 <script  src="js/mainModule.js"></script>
