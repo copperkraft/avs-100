@@ -1,81 +1,169 @@
-textarea{
-    width: 20em;
-    height: 444px;
-    color: lightgray;
-    background-color: black;
-    border-style: none;
-    text-transform: uppercase;
-    font-size: 12pt;
-    font-family: monospace;
-    font-weight: bold;
-    padding: 0;
-    resize: none;
+.disabled {
+  color: #777777;
 }
-
-textarea:focus{
-    outline: none;
+body {
+  margin: 0;
+  background: #fff;
 }
-input:focus{
-    outline: none;
+.menu {
+  font-size: 24px;
+  font-family: "Lucida Console", "Arial", sans-serif;
+  padding: 0.5em;
+  width: 20em;
+  margin: 10% auto;
+  background: #ddd;
 }
-
-table{
-    width: 100%;
+.menu .menu-link {
+  cursor: pointer;
+  list-style-type: none;
+  margin-bottom: 0.5em;
+  background: rgba(204, 204, 204, 0.65);
+  height: 2em;
 }
-
-body{
-    background-color: black;
+.menu .menu-link a {
+  display: block;
+  height: 1em;
+  text-decoration: none;
+  color: #111;
+  padding: 0.5em;
 }
-p {
-    font-size: 12pt;
-    font-family: monospace;
-    color: lightgray;
-    font-weight: bold;
-    margin: 0;
+.menu .menu-link:last-child {
+  margin-bottom: 0;
 }
-input {
-    width: 60px;
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 12pt;
-    color: lightgray;
-    margin: 5px;
-    border: 2px solid lightgray;
-    background-color: black;
+.menu .menu-link:hover {
+  background: rgba(166, 166, 166, 0.65);
 }
-input:hover {
-    background-color: #202020;
+.menu .menu-link.disabled a {
+  background: rgba(179, 179, 179, 0.65);
 }
-.Block {
-    border: 2px solid lightgray;
-    margin: 5px;
-    padding: 5px;
-    float: left;
+.menu .menu-link.dark {
+  background: black;
 }
-.Block2 {
-    max-width: 450px;
-    border: 2px solid lightgray;
-    margin: 5px;
-    padding: 5px;
-    float: left;
+.menu .menu-link.dark a {
+  color: white;
 }
-.subBlock {
-    min-width: 110px;
-    border: 2px solid lightgray;
-    padding: 5px;
-    margin: 5px;
+.menu .menu-link.light {
+  background: white;
 }
-.column {
-    vertical-align: top;
-    width: 56px;
-    display: inline-block;
-    border: 2px solid lightgray;
-    margin: 5px;
+.menu .menu-link.light a {
+  color: black;
 }
-.column .number{
-    padding-left: 10px;
-    border-top: 2px solid lightgray;
+.editor {
+  min-height: 700px;
 }
-.column .head{
-    text-align: center;
+.editor textarea {
+  width: 20em;
+  height: 444px;
+  border-style: none;
+  text-transform: uppercase;
+  font-size: 12pt;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0;
+  resize: none;
+}
+.editor textarea:focus {
+  outline: none;
+}
+.editor table {
+  width: 100%;
+}
+.editor p {
+  font-size: 12pt;
+  font-family: monospace;
+  font-weight: bold;
+  margin: 0;
+}
+.editor input {
+  width: 60px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 12pt;
+  margin: 5px;
+}
+.editor input:focus {
+  outline: none;
+}
+.editor .Block {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+.editor .Block2 {
+  max-width: 450px;
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+.editor .subBlock {
+  min-width: 110px;
+  padding: 5px;
+  margin: 5px;
+}
+.editor .column {
+  vertical-align: top;
+  width: 56px;
+  display: inline-block;
+  border: 2px solid lightgray;
+  margin: 5px;
+}
+.editor .column .number {
+  padding-left: 10px;
+  border-top: 2px solid lightgray;
+}
+.editor .column .head {
+  text-align: center;
+}
+.editor.light {
+  color: black;
+  background-color: white;
+}
+.editor.light textarea {
+  color: black;
+  background: white;
+}
+.editor.light input {
+  border: 2px solid gray;
+  background-color: gainsboro;
+}
+.editor.light input:hover {
+  background-color: lightgray;
+}
+.editor.light .Block,
+.editor.light .Block2,
+.editor.light .subBlock {
+  border: 2px solid gray;
+}
+.editor.light .error {
+  color: red;
+}
+.editor.light .onIndex {
+  background: lightgray;
+}
+.editor.dark {
+  color: gainsboro;
+  background-color: black;
+}
+.editor.dark textarea {
+  color: gainsboro;
+  background: black;
+}
+.editor.dark input {
+  color: gainsboro;
+  border: 2px solid lightgray;
+  background-color: black;
+}
+.editor.dark input:hover {
+  background-color: #2e2e2e;
+}
+.editor.dark .Block,
+.editor.dark .Block2,
+.editor.dark .subBlock {
+  border: 2px solid lightgray;
+}
+.editor.dark .error {
+  color: darkred;
+}
+.editor.dark .onIndex {
+  background: dimgray;
 }

@@ -26,11 +26,3 @@ app.controller('menuCtrl', function ($scope) {
         }
     ];
 });
-
-
-/* <li class="menu-link">Вход</li>
- <li class="menu-link">Настройки</li>
- <li class="menu-link">Обучение</li>
- <li class="menu-link">Игра</li>
- <li class="menu-link">Песочница</li>
- <li class="menu-link">Справочник</li>*/

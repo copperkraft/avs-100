@@ -1,60 +1,62 @@
-<div class="Block">
-    <div class="subBlock">
-        <p id="info">SIMULATOR AVS-100</p>
-        <p>{{test}}</p>
-    </div>
-    <div class="subBlock">
-        <input type="button" value="start" ng-disabled="played" ng-click="play()">
-        <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
-        <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
-    </div>
-    <div class="subBlock" ng-controller="tasksInputOutput">
-        <div class="column">
-            <p class="head">in</p>
-            <p class="number" ng-repeat="inputValue in levels[levelProgress.level].inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
-        </div>
-        <div  class="column">
-            <p class="head">need</p>
-            <p class="number" ng-repeat="expectation in levels[levelProgress.level].expectations track by $index" >{{expectation}}</p>
-        </div>
-        <div  class="column">
-            <p class="head">out</p>
-            <p class="number" ng-repeat="expectation in proc.output track by $index" >{{expectation}}</p>
-        </div>
-    </div>
-</div>
-<div class="Block">
-    <div style="float: left">
+<div class="editor">
+    <div class="Block">
         <div class="subBlock">
-            <p>GAME MODE</p>
+            <p id="info">SIMULATOR AVS-100</p>
+            <p>{{test}}</p>
         </div>
         <div class="subBlock">
-            <p>REGISTERS<br>AND FLAGS</p>
-            <p  ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+            <input type="button" value="start" ng-disabled="played" ng-click="play()">
+            <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
+            <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
+        </div>
+        <div class="subBlock" ng-controller="tasksInputOutput">
+            <div class="column">
+                <p class="head">in</p>
+                <p class="number" ng-repeat="inputValue in levels[levelProgress.level].inputArray track by $index" style="background-color: {{(currentInput == $index)? 'dimgray' : 'black'}}">{{inputValue}}</p>
+            </div>
+            <div  class="column">
+                <p class="head">need</p>
+                <p class="number" ng-repeat="expectation in levels[levelProgress.level].expectations track by $index" >{{expectation}}</p>
+            </div>
+            <div  class="column">
+                <p class="head">out</p>
+                <p class="number" ng-repeat="expectation in proc.output track by $index" >{{expectation}}</p>
+            </div>
         </div>
     </div>
-    <div style="float: left">
-        <div class="subBlock">
-            <table>
-                <tr>
-                    <td style="vertical-align: top">
-                        <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
+    <div class="Block">
+        <div style="float: left">
+            <div class="subBlock">
+                <p>GAME MODE</p>
+            </div>
+            <div class="subBlock">
+                <p>REGISTERS<br>AND FLAGS</p>
+                <p  ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+            </div>
+        </div>
+        <div style="float: left">
+            <div class="subBlock">
+                <table>
+                    <tr>
+                        <td style="vertical-align: top">
+                            <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
                             <span style="color: {{isFalse($index) ? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
                                 {{$index | strNum}}:
                             </span>
-                        </p>
-                    </td>
-                    <td style="vertical-align: top">
+                            </p>
+                        </td>
+                        <td style="vertical-align: top">
                         <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
                         </textarea>
-                    </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="Block2" ng-controller="levelator">
-    <p>Уровень:<span ng-show="progress.level > 1" ng-click="decrease()"><</span>{{progress.level}}<span ng-show="progress.finished[progress.level]" ng-click="increase()">></span></p>
-    <p>{{levels[progress.level].description}}</p>
+    <div class="Block2" ng-controller="levelator">
+        <p>Уровень:<span ng-show="progress.level > 1" ng-click="decrease()"><</span>{{progress.level}}<span ng-show="progress.finished[progress.level]" ng-click="increase()">></span></p>
+        <p>{{levels[progress.level].description}}</p>
+    </div>
 </div>

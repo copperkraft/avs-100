@@ -1,65 +1,43 @@
-<div class="Block">
-    <div class="subBlock">
-        <p id="info">SIMULATOR AVS-100</p>
+<div class="editor" ng-class="themes[currentTheme]">
+
+    <div class="controls Block">
+
     </div>
-    <div class="subBlock">
-        <input type="button" value="start" ng-disabled="played" ng-click="play()">
-        <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
-        <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
-    </div>
-    <div class="subBlock" ng-show="awaitingInput" ng-controller="consoleInput">
-        <input type="text" ng-model="inputText">
-        <input type="button" value="input" ng-click="input()">
-    </div>
-</div>
-<div class="Block">
-    <div style="float: left">
-        <div class="subBlock">
-            <p>SANDBOX<br>MODE</p>
+    <div class="Block">
+        <div style="float: left">
+            <div class="subBlock">
+                <p>SANDBOX<br>MODE</p>
+            </div>
+            <div class="subBlock">
+                <p>REGISTERS<br>AND FLAGS</p>
+                <p ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+            </div>
         </div>
-        <div class="subBlock">
-            <p>REGISTERS<br>AND FLAGS</p>
-            <p ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
-        </div>
-    </div>
-    <div style="float: left">
-        <div class="subBlock">
-            <table>
-                <tr >
-                    <td style="vertical-align: top">
-                        <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
-                            <span style="color: {{isFalse($index) ? 'red' : 'lightgray'}}; background-color: {{(proc.counter == $index)? 'dimgray' : 'black'}}">
+        <div style="float: left">
+            <div class="subBlock">
+                <table>
+                    <tr >
+                        <td style="vertical-align: top">
+                            <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
+                            <span ng-class="{error: isFalse($index), onIndex: proc.counter == $index}">
                                 {{$index | strNum}}:
                             </span>
-                        </p>
-                    </td>
-                    <td style="vertical-align: top">
+                            </p>
+                        </td>
+                        <td style="vertical-align: top">
                         <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
                         </textarea>
-                    </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<div class="Block">
-    <div class="subBlock">
-        <p>CONSOLE OUTPUT:</p>
-        <p ng-repeat="string in proc.output track by $index">{{string}}</p>
+    <div class="Block">
+        <div class="subBlock">
+            <p>CONSOLE OUTPUT:</p>
+            <p ng-repeat="string in proc.output track by $index">{{string}}</p>
+        </div>
     </div>
-</div>
-<br>
-
-
-<!--Module-->
-<script defer src="../js/mainModule.js"></script>
-<!--Controllers-->
-<script defer src="../js/controllers/sandboxCtrl.js"></script>
-<script defer src="../js/controllers/consoleInput.js"></script>
-<!--Core-->
-<script defer src="../js/services/coreConstructor.js"></script>
-<script defer src="../js/services/functionsDescriptions.js"></script>
-<!--Filters-->
-<script defer src="../js/filters.js"></script>
-
+    <br>
 </div>

@@ -1,0 +1,188 @@
+
+
+
+
+@pageBackground: #fff;
+@menuBackground: #ddd;
+@tabBackground: rgba(204, 204, 204, 0.65);
+@baseTextColor: #111;
+
+
+.disabled {
+  color: lighten(@baseTextColor, 40%);
+}
+
+
+body {
+  margin: 0;
+  background: @pageBackground;
+}
+
+.menu {
+  font-size: 24px;
+  font-family: "Lucida Console","Arial",sans-serif;
+  padding: 0.5em;
+  width: 20em;
+  margin: 10% auto;
+  background: @menuBackground;
+  .menu-link {
+    a {
+      display: block;
+      height: 1em;
+      text-decoration: none;
+      color: @baseTextColor;
+      padding: 0.5em;
+    }
+    cursor: pointer;
+    list-style-type: none;
+    margin-bottom: 0.5em;
+    background: @tabBackground;
+    height: 2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      background: darken(@tabBackground, 15%);
+    }
+    &.disabled a {
+      background: darken(@tabBackground, 10%);
+    }
+
+    &.dark {
+      background: black;
+      a {
+        color: white;
+      }
+    }
+    &.light {
+      background: white;
+      a {
+        color: black;
+      }
+    }
+  ;
+  }
+}
+
+.editor{
+  min-height: 700px;
+  textarea{
+    width: 20em;
+    height: 444px;
+    border-style: none;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 0;
+    resize: none;
+    &:focus{
+      outline: none;
+    }
+  }
+  table{
+    width: 100%;
+  }
+  p {
+    font-size: 12pt;
+    font-family: monospace;
+    font-weight: bold;
+    margin: 0;
+  }
+  input {
+    width: 60px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 12pt;
+    margin: 5px;
+    &:focus{
+      outline: none;
+    }
+  }
+
+  .Block {
+    margin: 5px;
+    padding: 5px;
+    float: left;
+  }
+  .Block2 {
+    max-width: 450px;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+  }
+  .subBlock {
+    min-width: 110px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .column {
+    vertical-align: top;
+    width: 56px;
+    display: inline-block;
+    border: 2px solid lightgray;
+    margin: 5px;
+    .number{
+      padding-left: 10px;
+      border-top: 2px solid lightgray;
+    }
+    .head{
+      text-align: center;
+    }
+  }
+
+  &.light {
+    color: black;
+    textarea {
+      color: black;
+      background: white;
+    }
+    input {
+      border: 2px solid gray;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+    .Block , .Block2 , .subBlock {
+      border: 2px solid gray;
+    }
+    background-color: white;
+    .error {
+      color: red;
+    }
+    .onIndex {
+      background: lightgray;
+    }
+  }
+
+  &.dark {
+    color: gainsboro;
+    textarea {
+      color: gainsboro;
+      background: black;
+    }
+    input {
+      color: gainsboro;
+      border: 2px solid lightgray;
+      background-color: black;
+      &:hover {
+        background-color: #2e2e2e;
+      }
+    }
+    .Block , .Block2 , .subBlock {
+      border: 2px solid lightgray;
+    }
+    background-color: black;
+    .error {
+      color: darkred;
+    }
+    .onIndex {
+      background: dimgray;
+    }
+  }
+}
+
+
+
+
