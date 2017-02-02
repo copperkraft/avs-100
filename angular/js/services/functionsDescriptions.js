@@ -28,7 +28,7 @@ var functionsArray = [
         this.registers[to] = Number(this.registers[from] || from);
     }, 'r', 'r|v'),
     new OperationConstructor('ADD', function (to, from) {
-        this.registers[to] += Number(this.registers[from]);
+        this.registers[to] += Number(this.registers[from] || from);
     }, 'r', 'r|v'),
     new OperationConstructor('JMP', function (to) {
         this.counter = (Number(this.registers[to] || to)) - 1;

@@ -1,14 +1,3 @@
-<div class="controls Block">
-    <div class="subBlock">
-        <p id="info">SIMULATOR AVS-100</p>
-    </div>
-    <div class="subBlock">
-        <input type="button" value="start" ng-disabled="played" ng-click="play()">
-        <input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
-        <input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">
-    </div>
-    <div class="subBlock" ng-show="awaitingInput" ng-controller="consoleInput">
-        <input type="text" ng-model="inputText">
-        <input type="button" value="input" ng-click="input()">
-    </div>
-</div>
+<input type="button" value="start" ng-disabled="played && proc.invalidFunctions.length > 0" ng-class="{disabled: played}" ng-click="play()">
+<input type="button" value="{{proc.started ? 'stop': 'clear'}}" ng-click="stop()">
+<input type="button" value="{{proc.played ? 'pause': 'step'}}" id="stepButton" ng-click="step()">

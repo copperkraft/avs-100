@@ -1,3 +1,7 @@
+h1 {
+  color: #56f;
+  background-color: #949df3;
+}
 body {
   margin: 0;
 }
@@ -11,46 +15,53 @@ body.dark .menu .menu-link {
   background-color: #444;
 }
 body.dark .menu .menu-link a {
-  color: #888;
+  color: #aaa;
 }
 body.dark .menu .menu-link:hover {
-  background-color: #444, rgba(125, 125, 125, 0.2);
+  background-color: #2b2b2b;
 }
 body.dark .menu .menu-link.disabled a {
-  background-color: #444, rgba(125, 125, 125, 0.7);
+  color: #5e5e5e;
 }
-body.dark .editor {
-  color: #888;
+body.dark .environment {
+  color: #aaa;
   background-color: #111;
 }
-body.dark .editor textarea {
-  color: #888;
+body.dark .environment .number {
+  color: #f6f6f6;
+}
+body.dark .environment textarea {
+  color: #aaa;
   background-color: #111;
 }
-body.dark .editor input {
+body.dark .environment input {
   border: 2px solid #333;
   background-color: #444;
-  color: #888;
+  color: #aaa;
 }
-body.dark .editor input:hover {
-  background-color: #444, rgba(125, 125, 125, 0.2);
+body.dark .environment input:hover {
+  background-color: #2b2b2b;
 }
-body.dark .editor .Block,
-body.dark .editor .Block2,
-body.dark .editor .subBlock {
+body.dark .environment input.disabled {
+  color: #5e5e5e;
+  background-color: #444;
+}
+body.dark .environment .Block,
+body.dark .environment .Block2,
+body.dark .environment .subBlock {
   border: 2px solid #333;
 }
-body.dark .editor .error {
-  color: red;
+body.dark .environment .error .number {
+  color: #b00;
 }
-body.dark .editor .onIndex {
-  background-color: #111, rgba(125, 125, 125, 0.1);
+body.dark .environment .onIndex {
+  background-color: #444;
 }
 body.light {
-  background-color: #fff;
+  background-color: #eee;
 }
 body.light .menu {
-  background-color: #747474;
+  background-color: #777;
 }
 body.light .menu .menu-link {
   background-color: #bbb;
@@ -59,82 +70,148 @@ body.light .menu .menu-link a {
   color: #111;
 }
 body.light .menu .menu-link:hover {
-  background-color: #bbb, rgba(125, 125, 125, 0.2);
+  background-color: #d4d4d4;
 }
 body.light .menu .menu-link.disabled a {
-  background-color: #bbb, rgba(125, 125, 125, 0.7);
+  color: #444444;
 }
-body.light .editor {
+body.light .environment {
   color: #111;
-  background-color: #fff;
+  background-color: #eee;
 }
-body.light .editor textarea {
+body.light .environment .number {
+  color: #691;
+}
+body.light .environment textarea {
   color: #111;
-  background-color: #fff;
+  background-color: #eee;
 }
-body.light .editor input {
-  border: 2px solid #747474;
+body.light .environment input {
+  border: 2px solid #777;
   background-color: #bbb;
   color: #111;
 }
-body.light .editor input:hover {
-  background-color: #bbb, rgba(125, 125, 125, 0.2);
+body.light .environment input:hover {
+  background-color: #d4d4d4;
 }
-body.light .editor .Block,
-body.light .editor .Block2,
-body.light .editor .subBlock {
-  border: 2px solid #747474;
+body.light .environment input.disabled {
+  color: #444444;
+  background-color: #bbb;
 }
-body.light .editor .error {
-  color: red;
+body.light .environment .Block,
+body.light .environment .Block2,
+body.light .environment .subBlock {
+  border: 2px solid #777;
 }
-body.light .editor .onIndex {
-  background-color: #fff, rgba(125, 125, 125, 0.1);
+body.light .environment .error .number {
+  color: #f00;
+}
+body.light .environment .onIndex {
+  background-color: #bbb;
 }
 body.water {
-  background-color: #171c22;
+  background-color: #123;
 }
 body.water .menu {
-  background-color: #238;
+  background-color: #146;
 }
 body.water .menu .menu-link {
-  background-color: #4f5bff;
+  background-color: #56f;
 }
 body.water .menu .menu-link a {
-  color: #ddf;
+  color: #fff;
 }
 body.water .menu .menu-link:hover {
-  background-color: #4f5bff, rgba(125, 125, 125, 0.2);
+  background-color: #949df3;
 }
 body.water .menu .menu-link.disabled a {
-  background-color: #4f5bff, rgba(125, 125, 125, 0.7);
+  color: #ffffff;
 }
-body.water .editor {
-  color: #ddf;
-  background-color: #171c22;
+body.water .environment {
+  color: #fff;
+  background-color: #123;
 }
-body.water .editor textarea {
-  color: #ddf;
-  background-color: #171c22;
+body.water .environment .number {
+  color: #0bb;
 }
-body.water .editor input {
-  border: 2px solid #238;
-  background-color: #4f5bff;
-  color: #ddf;
+body.water .environment textarea {
+  color: #fff;
+  background-color: #123;
 }
-body.water .editor input:hover {
-  background-color: #4f5bff, rgba(125, 125, 125, 0.2);
+body.water .environment input {
+  border: 2px solid #146;
+  background-color: #56f;
+  color: #fff;
 }
-body.water .editor .Block,
-body.water .editor .Block2,
-body.water .editor .subBlock {
-  border: 2px solid #238;
+body.water .environment input:hover {
+  background-color: #949df3;
 }
-body.water .editor .error {
-  color: red;
+body.water .environment input.disabled {
+  color: #ffffff;
+  background-color: #56f;
 }
-body.water .editor .onIndex {
-  background-color: #171c22, rgba(125, 125, 125, 0.1);
+body.water .environment .Block,
+body.water .environment .Block2,
+body.water .environment .subBlock {
+  border: 2px solid #146;
+}
+body.water .environment .error .number {
+  color: #dd003b;
+}
+body.water .environment .onIndex {
+  background-color: #56f;
+}
+body.elite {
+  background-color: #2b2b2b;
+}
+body.elite .menu {
+  background-color: #515658;
+}
+body.elite .menu .menu-link {
+  background-color: #313335;
+}
+body.elite .menu .menu-link a {
+  color: #cb7832;
+}
+body.elite .menu .menu-link:hover {
+  background-color: #2b2b2b;
+}
+body.elite .menu .menu-link.disabled a {
+  color: #5e5e5e;
+}
+body.elite .environment {
+  color: #cb7832;
+  background-color: #2b2b2b;
+}
+body.elite .environment .number {
+  color: #6896ba;
+}
+body.elite .environment textarea {
+  color: #cb7832;
+  background-color: #2b2b2b;
+}
+body.elite .environment input {
+  border: 2px solid #515658;
+  background-color: #313335;
+  color: #cb7832;
+}
+body.elite .environment input:hover {
+  background-color: #2b2b2b;
+}
+body.elite .environment input.disabled {
+  color: #5e5e5e;
+  background-color: #313335;
+}
+body.elite .environment .Block,
+body.elite .environment .Block2,
+body.elite .environment .subBlock {
+  border: 2px solid #515658;
+}
+body.elite .environment .error .number {
+  color: #f40;
+}
+body.elite .environment .onIndex {
+  background-color: #313335;
 }
 .menu {
   font-size: 24px;
@@ -158,12 +235,13 @@ body.water .editor .onIndex {
 .menu .menu-link:last-child {
   margin-bottom: 0;
 }
-.editor {
+.environment {
+  margin: 15px 10px;
   min-height: 700px;
 }
-.editor textarea {
+.environment textarea {
   width: 20em;
-  height: 444px;
+  height: 20em;
   border-style: none;
   text-transform: uppercase;
   font-size: 12pt;
@@ -172,53 +250,56 @@ body.water .editor .onIndex {
   padding: 0;
   resize: none;
 }
-.editor textarea:focus {
+.environment textarea:focus {
   outline: none;
 }
-.editor table {
+.environment table {
   width: 100%;
 }
-.editor p {
+.environment p {
   font-size: 12pt;
   font-family: monospace;
   font-weight: bold;
   margin: 0;
 }
-.editor input {
+.environment input {
+  display: inline-block;
+  box-sizing: border-box;
   width: 60px;
+  height: 30px;
   font-weight: bold;
   font-family: monospace;
   font-size: 12pt;
   margin: 5px;
 }
-.editor input:focus {
+.environment input:focus {
   outline: none;
 }
-.editor .Block {
+.environment .Block {
   margin: 5px;
   padding: 5px;
   float: left;
 }
-.editor .Block2 {
+.environment .Block2 {
   max-width: 450px;
   margin: 5px;
   padding: 5px;
   float: left;
 }
-.editor .subBlock {
+.environment .subBlock {
   min-width: 110px;
   padding: 5px;
   margin: 5px;
 }
-.editor .column {
+.environment .column {
   vertical-align: top;
   width: 56px;
   display: inline-block;
   margin: 5px;
 }
-.editor .column .number {
+.environment .column .number {
   padding-left: 10px;
 }
-.editor .column .head {
+.environment .column .head {
   text-align: center;
 }

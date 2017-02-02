@@ -1,36 +1,35 @@
-<div class="editor">
-
-    <div class="controls Block" ng-include="'views/runtimeControls.html'">
-
+<div class="environment">
+    <div>
+        <span ng-include="'views/runtimeControls.html'"></span>
+    <span ng-show="awaitingInput" ng-controller="consoleInput">
+        <input type="text" ng-model="inputText">
+        <input type="button" value="input" ng-click="input()">
+    </span>
     </div>
+
     <div class="Block">
         <div style="float: left">
             <div class="subBlock">
-                <p>SANDBOX<br>MODE</p>
-            </div>
-            <div class="subBlock">
                 <p>REGISTERS<br>AND FLAGS</p>
-                <p ng-repeat="(key, value) in proc.registers">{{key}}: {{value | hex | uppercase}}</p>
+                <p ng-repeat="(key, value) in proc.registers">{{key}}: <span class="number">{{value | hex | uppercase}}</span></p>
             </div>
         </div>
-        <div style="float: left">
-            <div class="subBlock">
-                <table>
-                    <tr >
-                        <td style="vertical-align: top">
-                            <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
+        <div class="Block">
+            <table>
+                <tr>
+                    <td style="vertical-align: top">
+                        <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
                             <span ng-class="{error: isFalse($index), onIndex: proc.counter == $index}">
-                                {{$index | strNum}}:
+                                <span class="number">{{$index | strNum}}:</span>
                             </span>
-                            </p>
-                        </td>
-                        <td style="vertical-align: top">
+                        </p>
+                    </td>
+                    <td style="vertical-align: top">
                         <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
                         </textarea>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="Block">

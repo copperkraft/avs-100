@@ -1,12 +1,8 @@
-app.controller('sandboxCtrl', function ($scope, $timeout, coreConstructor, functions) {
-    $scope.test = 0;
+app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functions) {
+    $scope.codeText = localStorage.save || '//код суда';
     $scope.saveAs = function (saveName) {
         localStorage.saves = localStorage.saves || [];
         localStorage.saves[saveName] = $scope.codeText;
-    };
-    $scope.loadSave = function (saveName) {
-        localStorage.saves = localStorage.saves || [];
-        $scope.codeText = localStorage.saves[saveName] || '//код суда';
     };
     $scope.stop = function () {
         if ($scope.proc.started) {

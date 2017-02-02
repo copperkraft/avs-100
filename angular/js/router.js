@@ -10,12 +10,12 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/sandbox',
         {
             templateUrl: 'views/sandbox.html',
-            controller: 'sandboxCtrl'
+            controller: 'editorCtrl'
         });
     $routeProvider.when('/game',
         {
             templateUrl: 'views/game.html',
-            controller: 'sandboxCtrl'
+            controller: 'editorCtrl'
         });
     $routeProvider.when('/settings',
         {

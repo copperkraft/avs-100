@@ -1,20 +1,43 @@
-@water-background: #171c22;
-@water-border: #238;
-@water-button: #4f5bff;
-@water-text: #ddf;
+@water-background: #123;
+@water-border: #146;
+@water-button: #56f;
+@water-button-hover: lighten(desaturate(@water-button, 20%), 10%);
+@water-text-disable: desaturate(@water-text, 20%);
+@water-text: #fff;
+@water-number: #0bb;
+@water-error: #dd003b;
 
-@light-background: #fff;
-@light-border: #747474;
+@light-background: #eee;
+@light-border: #777;
 @light-button: #bbb;
+@light-button-hover: lighten(@light-button, 10%);
+@light-text-disable: lighten(@light-text, 20%);
 @light-text: #111;
+@light-number: #691;
+@light-error: #f00;
 
 @dark-background: #111;
 @dark-border: #333;
 @dark-button: #444;
-@dark-text: #888;
+@dark-button-hover: darken(@dark-button, 10%);
+@dark-text-disable: darken(@dark-text, 30%);
+@dark-text: #aaa;
+@dark-number: lighten(@dark-text, 30%);
+@dark-error: #b00;
 
+@elite-background: #2b2b2b;
+@elite-border: #515658;
+@elite-button: #313335;
+@elite-button-hover: darken(@dark-button, 10%);
+@elite-text-disable: darken(@dark-text, 30%);
+@elite-text: #cb7832;
+@elite-number: #6896ba;
+@elite-error: #f40;
 
-
+h1 {
+  color: @water-button;
+  background-color: @water-button-hover;
+}
 
 
 
@@ -23,6 +46,7 @@ body {
   .theme(dark);
   .theme(light);
   .theme(water);
+  .theme(elite);
 }
 .theme(@theme) {
   &.@{theme} {
@@ -35,16 +59,20 @@ body {
         }
         background-color: e("@{@{theme}-button}");
         &:hover {
-          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.2);
+          background-color: e("@{@{theme}-button-hover}");
         }
-        &.disabled a {
-          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.7);
+        &.disabled a{
+          color: e("@{@{theme}-text-disable}");
+
         }
       }
     }
 
-    .editor{
+    .environment {
       color: e("@{@{theme}-text}");
+      .number {
+        color: e("@{@{theme}-number}");
+      }
       textarea {
         color: e("@{@{theme}-text}");
         background-color: e("@{@{theme}-background}");
@@ -54,18 +82,23 @@ body {
         background-color: e("@{@{theme}-button}");
         color: e("@{@{theme}-text}");
         &:hover {
-          background-color: e("@{@{theme}-button}"), rgba(125, 125, 125, 0.2);
+          background-color: e("@{@{theme}-button-hover}");
+        }
+        &.disabled {
+          color: e("@{@{theme}-text-disable}");
+          background-color: e("@{@{theme}-button}");
         }
       }
       .Block , .Block2 , .subBlock {
         border: 2px solid e("@{@{theme}-border}");
       }
       background-color: e("@{@{theme}-background}");
-      .error {
-        color: red;
+
+      .error .number {
+        color: e("@{@{theme}-error}");
       }
       .onIndex {
-        background-color: e("@{@{theme}-background}"), rgba(125, 125, 125, 0.1);
+        background-color: e("@{@{theme}-button}");
       }
     }
   }
@@ -97,11 +130,12 @@ body {
   }
 }
 
-.editor{
+.environment {
+  margin: 15px 10px;
   min-height: 700px;
   textarea{
     width: 20em;
-    height: 444px;
+    height: 20em;
     border-style: none;
     text-transform: uppercase;
     font-size: 12pt;
@@ -123,7 +157,10 @@ body {
     margin: 0;
   }
   input {
+    display: inline-block;
+    box-sizing: border-box;
     width: 60px;
+    height: 30px;
     font-weight: bold;
     font-family: monospace;
     font-size: 12pt;
