@@ -3,7 +3,7 @@ Assembler simulator for AU.
 <br>
 run angular/index.html
 <br>
-code example:
+code example for multiplier: <br>
 INP R1 	<br>
 INP R2	<br>
 MOV R3 0	<br>
