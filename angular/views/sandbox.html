@@ -1,10 +1,12 @@
 <div class="environment">
     <div>
         <span ng-include="'views/runtimeControls.html'"></span>
-    <span ng-show="awaitingInput" ng-controller="consoleInput">
-        <input type="text" ng-model="inputText">
+    <span  ng-show="awaitingInput" ng-controller="consoleInput">
+        <input class="text-input" type="text" ng-model="inputText">
         <input type="button" value="input" ng-click="input()">
+        <!--TODO добавить верификацию чисел по размеру и возможность ввода в HEX-->
     </span>
+
     </div>
 
     <div class="Block">

@@ -14,7 +14,7 @@ app.controller('menuCtrl', function ($scope) {
         }, {
             name: 'Обучение',
             urlState: '#/game',
-            enabled: false
+            enabled: true
         }, {
             name: 'Песочница',
             urlState: '#/sandbox',

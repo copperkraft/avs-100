@@ -46,6 +46,12 @@ body.dark .environment input.disabled {
   color: #5e5e5e;
   background-color: #444;
 }
+body.dark .environment input.text-input {
+  background-color: #111;
+}
+body.dark .environment input.text-input:hover {
+  background-color: #111;
+}
 body.dark .environment .Block,
 body.dark .environment .Block2,
 body.dark .environment .subBlock {
@@ -56,6 +62,13 @@ body.dark .environment .error .number {
 }
 body.dark .environment .onIndex {
   background-color: #444;
+}
+body.dark .environment .column p {
+  border: 2px solid #333;
+  border-bottom: none;
+}
+body.dark .environment .column p:last-child {
+  border-bottom: 2px solid #333;
 }
 body.light {
   background-color: #eee;
@@ -98,6 +111,12 @@ body.light .environment input.disabled {
   color: #444444;
   background-color: #bbb;
 }
+body.light .environment input.text-input {
+  background-color: #eee;
+}
+body.light .environment input.text-input:hover {
+  background-color: #eee;
+}
 body.light .environment .Block,
 body.light .environment .Block2,
 body.light .environment .subBlock {
@@ -108,6 +127,13 @@ body.light .environment .error .number {
 }
 body.light .environment .onIndex {
   background-color: #bbb;
+}
+body.light .environment .column p {
+  border: 2px solid #777;
+  border-bottom: none;
+}
+body.light .environment .column p:last-child {
+  border-bottom: 2px solid #777;
 }
 body.water {
   background-color: #123;
@@ -150,16 +176,29 @@ body.water .environment input.disabled {
   color: #ffffff;
   background-color: #56f;
 }
+body.water .environment input.text-input {
+  background-color: #123;
+}
+body.water .environment input.text-input:hover {
+  background-color: #123;
+}
 body.water .environment .Block,
 body.water .environment .Block2,
 body.water .environment .subBlock {
   border: 2px solid #146;
 }
 body.water .environment .error .number {
-  color: #dd003b;
+  color: #e03;
 }
 body.water .environment .onIndex {
-  background-color: #56f;
+  background-color: #53a;
+}
+body.water .environment .column p {
+  border: 2px solid #146;
+  border-bottom: none;
+}
+body.water .environment .column p:last-child {
+  border-bottom: 2px solid #146;
 }
 body.elite {
   background-color: #2b2b2b;
@@ -184,7 +223,7 @@ body.elite .environment {
   background-color: #2b2b2b;
 }
 body.elite .environment .number {
-  color: #6896ba;
+  color: #79c;
 }
 body.elite .environment textarea {
   color: #cb7832;
@@ -202,6 +241,12 @@ body.elite .environment input.disabled {
   color: #5e5e5e;
   background-color: #313335;
 }
+body.elite .environment input.text-input {
+  background-color: #2b2b2b;
+}
+body.elite .environment input.text-input:hover {
+  background-color: #2b2b2b;
+}
 body.elite .environment .Block,
 body.elite .environment .Block2,
 body.elite .environment .subBlock {
@@ -211,7 +256,14 @@ body.elite .environment .error .number {
   color: #f40;
 }
 body.elite .environment .onIndex {
-  background-color: #313335;
+  background-color: #444;
+}
+body.elite .environment .column p {
+  border: 2px solid #515658;
+  border-bottom: none;
+}
+body.elite .environment .column p:last-child {
+  border-bottom: 2px solid #515658;
 }
 .menu {
   font-size: 24px;
@@ -241,7 +293,7 @@ body.elite .environment .onIndex {
 }
 .environment textarea {
   width: 20em;
-  height: 20em;
+  height: 22em;
   border-style: none;
   text-transform: uppercase;
   font-size: 12pt;
@@ -297,9 +349,9 @@ body.elite .environment .onIndex {
   display: inline-block;
   margin: 5px;
 }
-.environment .column .number {
-  padding-left: 10px;
-}
 .environment .column .head {
   text-align: center;
+}
+.environment .column p {
+  height: 19px;
 }

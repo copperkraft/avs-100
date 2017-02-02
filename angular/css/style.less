@@ -5,7 +5,8 @@
 @water-text-disable: desaturate(@water-text, 20%);
 @water-text: #fff;
 @water-number: #0bb;
-@water-error: #dd003b;
+@water-on-index: #53a;
+@water-error: #e03;
 
 @light-background: #eee;
 @light-border: #777;
@@ -14,6 +15,7 @@
 @light-text-disable: lighten(@light-text, 20%);
 @light-text: #111;
 @light-number: #691;
+@light-on-index: @light-button;
 @light-error: #f00;
 
 @dark-background: #111;
@@ -23,6 +25,7 @@
 @dark-text-disable: darken(@dark-text, 30%);
 @dark-text: #aaa;
 @dark-number: lighten(@dark-text, 30%);
+@dark-on-index: @dark-button;
 @dark-error: #b00;
 
 @elite-background: #2b2b2b;
@@ -31,7 +34,8 @@
 @elite-button-hover: darken(@dark-button, 10%);
 @elite-text-disable: darken(@dark-text, 30%);
 @elite-text: #cb7832;
-@elite-number: #6896ba;
+@elite-number: #79c;
+@elite-on-index: #444;
 @elite-error: #f40;
 
 h1 {
@@ -88,6 +92,12 @@ body {
           color: e("@{@{theme}-text-disable}");
           background-color: e("@{@{theme}-button}");
         }
+        &.text-input {
+          background-color: e("@{@{theme}-background}");
+          &:hover {
+            background-color: e("@{@{theme}-background}");
+          }
+        }
       }
       .Block , .Block2 , .subBlock {
         border: 2px solid e("@{@{theme}-border}");
@@ -98,7 +108,14 @@ body {
         color: e("@{@{theme}-error}");
       }
       .onIndex {
-        background-color: e("@{@{theme}-button}");
+        background-color: e("@{@{theme}-on-index}");
+      }
+      .column p {
+        border: 2px solid e("@{@{theme}-border}");
+        border-bottom: none;
+        &:last-child {
+          border-bottom: 2px solid e("@{@{theme}-border}");
+        }
       }
     }
   }
@@ -135,7 +152,7 @@ body {
   min-height: 700px;
   textarea{
     width: 20em;
-    height: 20em;
+    height: 22em;
     border-style: none;
     text-transform: uppercase;
     font-size: 12pt;
@@ -169,7 +186,6 @@ body {
       outline: none;
     }
   }
-
   .Block {
     margin: 5px;
     padding: 5px;
@@ -191,11 +207,11 @@ body {
     width: 56px;
     display: inline-block;
     margin: 5px;
-    .number{
-      padding-left: 10px;
-    }
     .head{
       text-align: center;
+    }
+    p {
+      height: 19px;
     }
   }
 }
