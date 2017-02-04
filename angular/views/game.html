@@ -13,31 +13,20 @@
         <div class="Block">
             <table>
                 <tr>
-                    <td style="vertical-align: top">
+                    <td onscroll="strnum.scrollTop = textarea.scrollTop" id="strnum" class="str-num"  style="vertical-align: top">
                         <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
                             <span ng-class="{error: isFalse($index), onIndex: proc.counter == $index}">
                                 <span class="number">{{$index | strNum}}:</span>
                             </span>
                         </p>
                     </td>
-                    <td style="vertical-align: top">
-                        <textarea ng-trim="false" ng-keyup="updateProgram()" ng-model="codeText" id="textArea">
+                    <td  style="vertical-align: top">
+                        <textarea onscroll="strnum.scrollTop = textarea.scrollTop" id="textarea" ng-keyup="updateProgram()" ng-model="codeText" id="textArea" ng-trim="false">
                         </textarea>
                     </td>
                 </tr>
             </table>
         </div>
-    </div>
-    <div class="Block2" ng-controller="levelator">
-        <p>Уровень:
-            <span ng-show="progress.level > 1" ng-click="decrease()">
-                <
-            </span>
-            {{progress.level}}
-            <span ng-show="progress.finished[progress.level]" ng-click="increase()">
-                >
-            </span></p>
-        <p>{{levels[progress.level].description}}</p>
     </div>
     <div class="Block2" ng-controller="tasksInputOutput">
         <div class="column">
@@ -60,5 +49,18 @@
             </p>
         </div>
     </div>
+    <div class="Block2" ng-controller="levelator">
+        <p>Уровень:
+            <span ng-show="progress.level > 1" ng-click="decrease()">
+                <
+            </span>
+            {{progress.level}}
+            <span ng-show="progress.finished[progress.level]" ng-click="increase()">
+                >
+            </span></p>
+        <p>{{levels[progress.level].description}}</p>
+        <p class="number">{{levels[progress.level].specification}}</p>
+    </div>
+
     <br>
 </div>

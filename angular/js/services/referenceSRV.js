@@ -1,16 +1,16 @@
-app.factory('articleSRV', function () { //TODO переписать на получение JSON
+app.factory("articleSRV", function () { //TODO переписать на получение JSON
     return {
-        'introduction': {
+        "introduction": {
             name: "Введение",
-            description : 'В данном руководстве вы научитесь пользоваться AVS-100!'
+            description: "В данном руководстве вы научитесь пользоваться AVS-100!"
         },
-        'commands': {
+        "commands": {
             name: "Команды:",
-            description : 'В данном руководстве вы научитесь пользоваться AVS-100!'
+            description: "В данном руководстве вы научитесь пользоваться AVS-100!"
         },
-        'generals': {
+        "generals": {
             name: "Основы работы симулятора",
-            description : 'В данном руководстве вы научитесь пользоваться AVS-100!'
+            description: "В данном руководстве вы научитесь пользоваться AVS-100!"
         }
     };
 });

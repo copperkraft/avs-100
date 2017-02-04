@@ -53,6 +53,41 @@ body {
   .theme(elite);
 }
 .theme(@theme) {
+  &::-webkit-scrollbar-button {
+    background: url('') no-repeat;
+    width:0px;
+    height:0
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: e("@{@{theme}-button}");
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: e("@{@{theme}-number}") no-repeat center;
+  }
+  &::-webkit-scrollbar{
+    width: 11px;
+  }
+  ::-webkit-scrollbar-button {
+    background: url('') no-repeat;
+    width:0px;
+    height:0
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: e("@{@{theme}-button}");
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: e("@{@{theme}-number}") no-repeat center;
+  }
+  ::-webkit-scrollbar{
+    width: 11px;
+  }
+
+
+
   &.@{theme} {
     background-color: e("@{@{theme}-background}");
     .menu {
@@ -125,6 +160,7 @@ body {
 
 
 .menu {
+
   font-size: 24px;
   font-family: "Lucida Console","Arial",sans-serif;
   padding: 0.5em;
@@ -150,26 +186,33 @@ body {
 .environment {
   margin: 15px 10px;
   min-height: 700px;
-  textarea{
-    width: 20em;
-    height: 22em;
-    border-style: none;
-    text-transform: uppercase;
-    font-size: 12pt;
-    font-family: monospace;
-    font-weight: bold;
-    padding: 0;
-    resize: none;
-    &:focus{
-      outline: none;
-    }
+  td.str-num {
+    &::-webkit-scrollbar { width: 0; height: 0}
+    max-height: 351px;
+    display: block;
+    overflow: scroll;
   }
   table{
+    textarea{
+      width: 20em;
+      height: 22em;
+      border-style: none;
+      text-transform: uppercase;
+      font-size: 12pt;
+      font-family: "Consolas", monospace;
+      font-weight: bold;
+      padding: 0;
+      resize: none;
+      &:focus{
+        outline: none;
+      }
+    }
+
     width: 100%;
   }
   p {
     font-size: 12pt;
-    font-family: monospace;
+    font-family: "Consolas", monospace;
     font-weight: bold;
     margin: 0;
   }
@@ -179,7 +222,7 @@ body {
     width: 60px;
     height: 30px;
     font-weight: bold;
-    font-family: monospace;
+    font-family: "Consolas", monospace;
     font-size: 12pt;
     margin: 5px;
     &:focus{

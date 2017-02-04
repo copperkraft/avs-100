@@ -54,6 +54,10 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         }
         return false;
     };
+    $scope.textAreaScroll = function() {
+        alert(111);
+        document.querySelector('textarea').scrollTo( 0, 1000 );
+    };
     $scope.proc = coreConstructor.processor('intel', 16);
     if (window.localStorage) {
         $scope.codeText = window.localStorage.textArea || '//код писать сюда';
@@ -62,4 +66,19 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         $scope.codeText = '';
         $scope.updateProgram();
     }
+
+});
+app.directive("scroll", function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            if (this.pageYOffset >= 100) {
+                scope.boolChangeClass = true;
+                console.log('Scrolled below header.');
+            } else {
+                scope.boolChangeClass = false;
+                console.log('Header is in view.');
+            }
+            scope.$apply();
+        });
+    };
 });
