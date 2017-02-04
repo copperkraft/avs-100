@@ -17,6 +17,7 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
         $scope.currentInput += 1;
     });
     $scope.proc.outputEvents.push(function () { //добавляем в событие вывода проверкку на совпадение с ожиданиями
+        console.log("fin");
         var i, len;
         if (levelSRV[$progress.level].expectations.length === $scope.proc.output.length) {
             for (i = 0, len = $scope.proc.output.length; i < len; i++) {
@@ -33,7 +34,7 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
     });
 })
     .factory('$progress', function () {  //объект медиатор, хранящий прогресс
-        var progress =  {level: 1, finished: {}}; //загрузка объекта по умалчанию
+        var progress =  {level: 1, finished: {}}; //загрузка объекта по умолчанию
         if (localStorage.progress) { //если у нас есть сохраненный прогресс, то загружаем его
             progress = JSON.parse(localStorage.progress);
         }
