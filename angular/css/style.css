@@ -7,7 +7,7 @@ body {
 }
 body::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 }
 body ::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body ::-webkit-scrollbar-track {
@@ -100,7 +100,7 @@ body.dark .environment .column p:last-child {
 }
 body::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body::-webkit-scrollbar-track {
@@ -114,7 +114,7 @@ body::-webkit-scrollbar {
 }
 body ::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body ::-webkit-scrollbar-track {
@@ -193,7 +193,7 @@ body.light .environment .column p:last-child {
 }
 body::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body::-webkit-scrollbar-track {
@@ -207,7 +207,7 @@ body::-webkit-scrollbar {
 }
 body ::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body ::-webkit-scrollbar-track {
@@ -286,7 +286,7 @@ body.water .environment .column p:last-child {
 }
 body::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body::-webkit-scrollbar-track {
@@ -300,7 +300,7 @@ body::-webkit-scrollbar {
 }
 body ::-webkit-scrollbar-button {
   background: url('') no-repeat;
-  width: 0px;
+  width: 0;
   height: 0;
 }
 body ::-webkit-scrollbar-track {

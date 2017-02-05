@@ -34,12 +34,14 @@ var functionsArray = [
         this.counter = (Number(this.registers[to] || to)) - 1;
     }, 'r|v'),
     new OperationConstructor('OUT', function (to) {
+
         var out;
         if (this.registers[to] === 0) {
             out = 0;
         } else {
             out = this.registers[to] || to;
         }
+
         this.output.push(out);
         this.outputEvents.forEach(function (outputEvent) { outputEvent(out); });
     }, 'r|v'),

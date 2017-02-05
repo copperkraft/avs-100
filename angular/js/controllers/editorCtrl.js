@@ -1,8 +1,17 @@
 app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functions) {
-    $scope.codeText = localStorage.save || '//код суда';
-    $scope.saveAs = function (saveName) {
-        localStorage.saves = localStorage.saves || [];
-        localStorage.saves[saveName] = $scope.codeText;
+    $scope.save = function () {
+        localStorage[$scope.localSave] = $scope.codeText;
+    };
+    $scope.load = function () {
+        if (localStorage[$scope.localSave]) {
+            $scope.codeText = localStorage[$scope.localSave];
+        } else {
+            $scope.codeText = "//input text here";
+        }
+    };
+    $scope.localSave = '';
+    $scope.changeLocalSave = function(name) {
+        $scope.localSave = name;
     };
     $scope.stop = function () {
         if ($scope.proc.started) {
@@ -43,7 +52,7 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         }
     };
     $scope.updateProgram = function () {
-        window.localStorage.textArea = $scope.codeText;
+        $scope.save();
         $scope.proc.reset();
         $scope.played = false;
         $scope.proc.operationsData = functions.getOperationsData($scope.codeText);
@@ -59,12 +68,6 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         document.querySelector('textarea').scrollTo( 0, 1000 );
     };
     $scope.proc = coreConstructor.processor('intel', 16);
-    if (window.localStorage) {
-        $scope.codeText = window.localStorage.textArea || '//код писать сюда';
-        $scope.updateProgram();
-    } else {
-        $scope.codeText = '';
-        $scope.updateProgram();
-    }
-
+    $scope.load();
+    $scope.updateProgram();
 });
