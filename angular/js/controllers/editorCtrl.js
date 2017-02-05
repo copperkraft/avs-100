@@ -6,7 +6,7 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         if (localStorage[$scope.localSave]) {
             $scope.codeText = localStorage[$scope.localSave];
         } else {
-            $scope.codeText = "//input text here";
+            $scope.codeText = "//input code here";
         }
     };
     $scope.localSave = '';
@@ -23,6 +23,7 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         }
     };
     $scope.step = function () {
+        if ($scope.proc.operationsData.invalidFunctions) {return}
         if ($scope.played) {
             $scope.played = false;
         } else {
@@ -33,12 +34,13 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         }
     };
     $scope.play = function () {
+        if ($scope.proc.operationsData.invalidFunctions) {return}
         if ($scope.proc.locked) {
             return;
         }
         $scope.played = true;
         $scope.proc.execute();
-        $timeout($scope.player, 200);
+        $timeout($scope.player, 100);
     };
 
     $scope.player = function () {
@@ -48,7 +50,7 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
                 return;
             }
             $scope.proc.execute();
-            $timeout($scope.player, 200);
+            $timeout($scope.player, 100);
         }
     };
     $scope.updateProgram = function () {

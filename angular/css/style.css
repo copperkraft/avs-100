@@ -50,6 +50,7 @@ body.dark .menu .menu-link:hover {
 }
 body.dark .menu .menu-link.disabled a {
   color: #5e5e5e;
+  background-color: #444;
 }
 body.dark .environment {
   color: #aaa;
@@ -143,6 +144,7 @@ body.light .menu .menu-link:hover {
 }
 body.light .menu .menu-link.disabled a {
   color: #444444;
+  background-color: #bbb;
 }
 body.light .environment {
   color: #111;
@@ -236,6 +238,7 @@ body.water .menu .menu-link:hover {
 }
 body.water .menu .menu-link.disabled a {
   color: #ffffff;
+  background-color: #56f;
 }
 body.water .environment {
   color: #fff;
@@ -329,6 +332,7 @@ body.elite .menu .menu-link:hover {
 }
 body.elite .menu .menu-link.disabled a {
   color: #5e5e5e;
+  background-color: #313335;
 }
 body.elite .environment {
   color: #cb7832;
