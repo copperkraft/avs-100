@@ -25,7 +25,7 @@
 <!--Core-->
 <script  src="js/services/coreConstructor.js"></script>
 <script  src="js/services/functionsDescriptions.js"></script>
-<script src="js/services/levelDeliverySRV.js"></script>
+<script src="js/services/trainingLevels.service.js"></script>
 <!--Filters-->
 <script  src="js/filters.js"></script>
 <!--Router-->

@@ -13,11 +13,15 @@ app.controller('menuCtrl', function ($scope) {
             enabled: false
         }, {
             name: 'Обучение',
-            urlState: '#/game',
+            urlState: '#/training',
             enabled: true
         }, {
             name: 'Песочница',
             urlState: '#/sandbox',
+            enabled: true
+        }, {
+            name: 'Одиночные задания',
+            urlState: '#/levels',
             enabled: true
         }, {
             name: 'Справочник',

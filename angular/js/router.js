@@ -12,9 +12,9 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/sandbox.html',
             controller: 'editorCtrl'
         });
-    $routeProvider.when('/game',
+    $routeProvider.when('/training',
         {
-            templateUrl: 'views/game.html',
+            templateUrl: 'views/training.html',
             controller: 'editorCtrl'
         });
     $routeProvider.when('/settings',
