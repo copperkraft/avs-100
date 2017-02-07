@@ -16,4 +16,6 @@ app.controller("consoleInput", function ($scope) {
         $scope.awaitingInput = true;
     });
     $scope.changeLocalSave('sandbox');
+    $scope.load();
+    $scope.updateProgram();
 });

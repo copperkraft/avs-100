@@ -25,13 +25,13 @@ function OperationConstructor(name, code, firstOperandType, secondOperandType) {
 }
 var functionsArray = [
     new OperationConstructor('MOV', function (to, from) {
-        this.registers[to] = Number(this.registers[from] || from);
+        this.registers[to] = Number(this.registers[from] === 0? 0: this.registers[from] || from);
     }, 'r', 'r|v'),
     new OperationConstructor('ADD', function (to, from) {
-        this.registers[to] += Number(this.registers[from] || from);
+        this.registers[to] += Number(this.registers[from] === 0? 0: this.registers[from] || from);
     }, 'r', 'r|v'),
     new OperationConstructor('JMP', function (to) {
-        this.counter = (Number(this.registers[to] || to)) - 1;
+        this.counter = (Number(this.registers[to] === 0? 0: this.registers[to] || to)) - 1;
     }, 'r|v'),
     new OperationConstructor('OUT', function (to) {
 
@@ -57,18 +57,25 @@ var functionsArray = [
         }
     }, 'r'),
     new OperationConstructor('SUB', function (to, from) {
-        this.registers[to] -= Number(this.registers[from] || from);
+        this.registers[to] -= Number(this.registers[from] === 0? 0:this.registers[from] || from);
     }, 'r', 'r|v'),
     new OperationConstructor('JEZ', function (data, to) {
         if (this.registers[data] === 0) {
-            this.counter = (Number(this.registers[to] || to)) - 1;
+            this.counter = (Number(this.registers[to] === 0? 0:this.registers[to] || to)) - 1;
         }
     }, 'r', 'r|v'),
     new OperationConstructor('JCF', function (to) {
         if (this.registers.CF === 1) {
-            this.counter = (Number(this.registers[to] || to)) - 1;
+            this.counter = (Number(this.registers[to] === 0? 0:this.registers[to] || to)) - 1;
         }
-    }, 'r|v')
+    }, 'r|v'),
+    new OperationConstructor('MRD', function (to, from) {
+        this.registers[to] = Number(this.registers['R'+ Number(this.registers[from] === 0? 0:this.registers[from] || from)] || '0');
+    }, 'r', 'r|v'),
+    new OperationConstructor('MWR', function (to, from) {
+        this.registers['R'+ Number(this.registers[to] === 0? 0:this.registers[to] || to)] = Number(this.registers[from] === 0? 0: this.registers[from] || from);
+    }, 'r|v', 'r|v'),
+
 ];
 function getOperationByString(input) {
     var string = input.replace(/\/\/.*/, ''),

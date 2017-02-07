@@ -17,6 +17,11 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/training.html',
             controller: 'editorCtrl'
         });
+    $routeProvider.when('/levels',
+        {
+            templateUrl: 'views/levelSelection.html',
+            controller: 'levelSelection'
+        });
     $routeProvider.when('/settings',
         {
             templateUrl: 'views/settings.html',

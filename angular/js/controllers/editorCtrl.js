@@ -65,11 +65,5 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         }
         return false;
     };
-    $scope.textAreaScroll = function() {
-        alert(111);
-        document.querySelector('textarea').scrollTo( 0, 1000 );
-    };
     $scope.proc = coreConstructor.processor('intel', 16);
-    $scope.load();
-    $scope.updateProgram();
 });

@@ -22,7 +22,7 @@ app.controller('menuCtrl', function ($scope) {
         }, {
             name: 'Одиночные задания',
             urlState: '#/levels',
-            enabled: true
+            enabled: false
         }, {
             name: 'Справочник',
             urlState: '#/reference',

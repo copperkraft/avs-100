@@ -1,6 +1,5 @@
 <ul class="menu">
-    <li class="menu-link" ng-repeat="item in menuItems" ng-class="{disabled: !item.enabled}" >
-        <a href="{{item.enabled? item.urlState : '#'}}">{{item.name}}</a>
+    <li class="menu-link" ng-repeat="(key, value) in levels" ng-class="{disabled: !item.enabled}" >
+        <a href="{{'/'+key}}">{{value.name}}</a>
     </li>
-    <li class="menu-link" ng-class="themes[currentTheme]"><a ng-click="changeTheme()">Цветовая схема: {{themes[currentTheme]}}</a></li>
 </ul>w

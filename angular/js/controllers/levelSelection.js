@@ -1,4 +1,3 @@
-app.controller('levelSelection', function ($scope, $routeParams) {
-    $scope.levels =
-    ;
+app.controller('levelSelection', function ($scope, singleLevelSRV) {
+    $scope.levels = singleLevelSRV;
 });

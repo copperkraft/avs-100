@@ -22,10 +22,12 @@
 <script  src="js/controllers/consoleInput.js"></script>
 <script  src="js/controllers/settingsCtrl.js"></script>
 <script  src="js/controllers/referenceCtrl.js"></script>
+<script src="js/controllers/levelSelection.js"></script>
 <!--Core-->
 <script  src="js/services/coreConstructor.js"></script>
 <script  src="js/services/functionsDescriptions.js"></script>
 <script src="js/services/trainingLevels.service.js"></script>
+<script src="js/services/singleLevels.service.js"></script>
 <!--Filters-->
 <script  src="js/filters.js"></script>
 <!--Router-->

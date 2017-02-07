@@ -433,6 +433,9 @@ body.elite .environment .column p:last-child {
 .environment table textarea:focus {
   outline: none;
 }
+.environment table textarea.double-width {
+  width: 40em;
+}
 .environment p {
   font-size: 12pt;
   font-family: "Consolas", monospace;
