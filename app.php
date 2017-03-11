@@ -6,12 +6,11 @@
     <title>AVS-100</title>
     <script src="angular.min.js"></script>
     <script src="angular-route.min.js"></script>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
 </head>
 
 <body ng-app="myApp" ng-controller="mainCtrl" ng-class="themes[currentTheme]">
 <ng-view ></ng-view>
-
-
 <script  src="js/mainModule.js"></script>
 
 <!--Controllers-->
@@ -23,6 +22,7 @@
 <script  src="js/controllers/settingsCtrl.js"></script>
 <script  src="js/controllers/referenceCtrl.js"></script>
 <script src="js/controllers/levelSelection.js"></script>
+<script src="js/controllers/singleLevel.controller.js"></script>
 <!--Core-->
 <script  src="js/services/coreConstructor.js"></script>
 <script  src="js/services/functionsDescriptions.js"></script>

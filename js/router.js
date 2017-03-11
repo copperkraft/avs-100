@@ -7,6 +7,11 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/menu.html',
             controller: 'menuCtrl'
         });
+    $routeProvider.when('/login',
+        {
+            templateUrl: 'views/menu.html',
+            controller: 'menuCtrl'
+        });
     $routeProvider.when('/sandbox',
         {
             templateUrl: 'views/sandbox.html',
@@ -18,6 +23,11 @@ app.config(function ($routeProvider) {
             controller: 'editorCtrl'
         });
     $routeProvider.when('/levels',
+        {
+            templateUrl: 'views/levelSelection.html',
+            controller: 'levelSelection'
+        });
+    $routeProvider.when('/levels/:levelName',
         {
             templateUrl: 'views/levelSelection.html',
             controller: 'levelSelection'

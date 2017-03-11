@@ -1,0 +1,63 @@
+<div class="environment">
+    <div>
+        <span ng-include="'views/runtimeControls.html'"></span>
+    </div>
+
+    <div class="Block">
+        <div style="float: left">
+            <div class="subBlock">
+                <p>REGISTERS<br>AND FLAGS</p>
+                <p ng-repeat="(key, value) in proc.registers">{{key}}: <span class="number">{{value | hex | uppercase}}</span></p>
+            </div>
+        </div>
+        <div class="Block">
+            <table>
+                <tr>
+                    <td onscroll="strnum.scrollTop = textarea.scrollTop" id="strnum" class="str-num"  style="vertical-align: top">
+                        <p ng-repeat="strNum in proc.operationsData.instructionSet track by $index">
+                            <span ng-class="{error: isFalse($index), onIndex: proc.counter == $index}">
+                                <span class="number">{{$index | strNum}}:</span>
+                            </span>
+                        </p>
+                    </td>
+                    <td  style="vertical-align: top">
+                        <textarea onscroll="strnum.scrollTop = textarea.scrollTop" id="textarea" ng-keyup="updateProgram()" ng-model="codeText" id="textArea" ng-trim="false">
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="Block2" ng-controller="tasksInputOutput">
+        <div class="column">
+            <p class="head">in</p>
+            <p class="number" ng-repeat="inputValue in levels[levelProgress.level].inputArray track by $index"
+               ng-class="{onIndex: currentInput == $index}">
+                {{inputValue}}
+            </p>
+        </div>
+        <div  class="column">
+            <p class="head">need</p>
+            <p class="number" ng-repeat="expectation in levels[levelProgress.level].expectations track by $index" >
+                {{expectation}}
+            </p>
+        </div>
+        <div  class="column">
+            <p class="head">out</p>
+            <p class="number" ng-repeat="expectation in levels[levelProgress.level].expectations track by $index" >
+                {{proc.output[$index]}}
+            </p>
+        </div>
+    </div>
+    <div class="Block2" ng-controller="levelator">
+        <p>Уровень:
+            <input type="button" ng-show="progress.level > 1" ng-click="decrease()" value="<">
+            </input>
+            {{progress.level}}
+            <input type="button" ng-show="progress.finished[progress.level] && levels[progress.level]" ng-click="increase()" value=">"></p>
+        <p>{{levels[progress.level].description}}</p>
+        <p class="number">{{levels[progress.level].specification}}</p>
+    </div>
+
+    <br>
+</div>

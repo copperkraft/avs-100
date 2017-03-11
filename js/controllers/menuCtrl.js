@@ -1,7 +1,7 @@
 /**
  * Created by Владимир on 01.12.2016.
  */
-app.controller('menuCtrl', function ($scope) {
+app.controller('menuCtrl', function ($scope, $http) {
     $scope.menuItems = [
         {
             name: 'Вход',
@@ -22,11 +22,21 @@ app.controller('menuCtrl', function ($scope) {
         }, {
             name: 'Одиночные задания',
             urlState: '#/levels',
-            enabled: false
+            enabled: true
         }, {
             name: 'Справочник',
             urlState: '#/reference',
+            enabled: true
+        }, {
+            name: 'Тесты',
+            urlState: '#/tests',
             enabled: false
         }
     ];
+    $scope.register = function (login, password) {
+        $http.post("php/AJAX_authorisation.php", {login: "emperor", password: "deadmn"}).success(function (answer) {
+            $scope.response = answer;
+            console.log(answer);
+        });
+    }
 });

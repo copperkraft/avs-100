@@ -39,16 +39,27 @@ body.dark {
 body.dark .menu {
   background-color: #333;
 }
-body.dark .menu .menu-link {
+body.dark .menu .menu-link,
+body.dark .menu button {
   background-color: #444;
 }
-body.dark .menu .menu-link a {
+body.dark .menu .menu-link a,
+body.dark .menu button a,
+body.dark .menu .menu-link button,
+body.dark .menu button button {
   color: #aaa;
 }
-body.dark .menu .menu-link:hover {
+body.dark .menu .menu-link input,
+body.dark .menu button input {
+  background-color: #2b2b2b;
+  color: #5e5e5e;
+}
+body.dark .menu .menu-link:hover,
+body.dark .menu button:hover {
   background-color: #2b2b2b;
 }
-body.dark .menu .menu-link.disabled a {
+body.dark .menu .menu-link.disabled a,
+body.dark .menu button.disabled a {
   color: #5e5e5e;
   background-color: #444;
 }
@@ -108,7 +119,7 @@ body::-webkit-scrollbar-track {
   background-color: #bbb;
 }
 body::-webkit-scrollbar-thumb {
-  background: #691 no-repeat center;
+  background: #56f no-repeat center;
 }
 body::-webkit-scrollbar {
   width: 11px;
@@ -122,7 +133,7 @@ body ::-webkit-scrollbar-track {
   background-color: #bbb;
 }
 body ::-webkit-scrollbar-thumb {
-  background: #691 no-repeat center;
+  background: #56f no-repeat center;
 }
 body ::-webkit-scrollbar {
   width: 11px;
@@ -133,16 +144,27 @@ body.light {
 body.light .menu {
   background-color: #777;
 }
-body.light .menu .menu-link {
+body.light .menu .menu-link,
+body.light .menu button {
   background-color: #bbb;
 }
-body.light .menu .menu-link a {
+body.light .menu .menu-link a,
+body.light .menu button a,
+body.light .menu .menu-link button,
+body.light .menu button button {
   color: #111;
 }
-body.light .menu .menu-link:hover {
+body.light .menu .menu-link input,
+body.light .menu button input {
+  background-color: #d4d4d4;
+  color: #444444;
+}
+body.light .menu .menu-link:hover,
+body.light .menu button:hover {
   background-color: #d4d4d4;
 }
-body.light .menu .menu-link.disabled a {
+body.light .menu .menu-link.disabled a,
+body.light .menu button.disabled a {
   color: #444444;
   background-color: #bbb;
 }
@@ -151,7 +173,7 @@ body.light .environment {
   background-color: #eee;
 }
 body.light .environment .number {
-  color: #691;
+  color: #56f;
 }
 body.light .environment textarea {
   color: #111;
@@ -227,16 +249,27 @@ body.water {
 body.water .menu {
   background-color: #146;
 }
-body.water .menu .menu-link {
+body.water .menu .menu-link,
+body.water .menu button {
   background-color: #56f;
 }
-body.water .menu .menu-link a {
+body.water .menu .menu-link a,
+body.water .menu button a,
+body.water .menu .menu-link button,
+body.water .menu button button {
   color: #fff;
 }
-body.water .menu .menu-link:hover {
+body.water .menu .menu-link input,
+body.water .menu button input {
+  background-color: #949df3;
+  color: #ffffff;
+}
+body.water .menu .menu-link:hover,
+body.water .menu button:hover {
   background-color: #949df3;
 }
-body.water .menu .menu-link.disabled a {
+body.water .menu .menu-link.disabled a,
+body.water .menu button.disabled a {
   color: #ffffff;
   background-color: #56f;
 }
@@ -321,16 +354,27 @@ body.elite {
 body.elite .menu {
   background-color: #515658;
 }
-body.elite .menu .menu-link {
+body.elite .menu .menu-link,
+body.elite .menu button {
   background-color: #313335;
 }
-body.elite .menu .menu-link a {
+body.elite .menu .menu-link a,
+body.elite .menu button a,
+body.elite .menu .menu-link button,
+body.elite .menu button button {
   color: #cb7832;
 }
-body.elite .menu .menu-link:hover {
+body.elite .menu .menu-link input,
+body.elite .menu button input {
+  background-color: #2b2b2b;
+  color: #5e5e5e;
+}
+body.elite .menu .menu-link:hover,
+body.elite .menu button:hover {
   background-color: #2b2b2b;
 }
-body.elite .menu .menu-link.disabled a {
+body.elite .menu .menu-link.disabled a,
+body.elite .menu button.disabled a {
   color: #5e5e5e;
   background-color: #313335;
 }
@@ -381,12 +425,29 @@ body.elite .environment .column p {
 body.elite .environment .column p:last-child {
   border-bottom: 2px solid #515658;
 }
+.sausage {
+  display: inline;
+}
 .menu {
+  /* Firefox 19+ */
+  /* Firefox 18- */
   font-size: 24px;
   font-family: "Lucida Console", "Arial", sans-serif;
   padding: 0.5em;
   width: 20em;
-  margin: 10% auto;
+  margin: 5% auto;
+}
+.menu ::-webkit-input-placeholder {
+  color: #c0392b;
+}
+.menu ::-moz-placeholder {
+  color: #c0392b;
+}
+.menu :-moz-placeholder {
+  color: #c0392b;
+}
+.menu :-ms-input-placeholder {
+  color: #c0392b;
 }
 .menu .menu-link {
   cursor: pointer;
@@ -394,11 +455,32 @@ body.elite .environment .column p:last-child {
   margin-bottom: 0.5em;
   height: 2em;
 }
-.menu .menu-link a {
+.menu .menu-link a,
+.menu .menu-link label,
+.menu .menu-link input {
+  border: none;
+  font-size: 24px;
+  font-family: "Lucida Console", "Arial", sans-serif;
   display: block;
   height: 1em;
   text-decoration: none;
   padding: 0.5em;
+}
+.menu .menu-link input {
+  font-size: 24px;
+  width: 19em;
+  float: right;
+}
+.menu .menu-link button {
+  text-align: left;
+  font-size: 24px;
+  font-family: "Lucida Console", "Arial", sans-serif;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.menu .menu-link button:focus {
+  outline: none;
 }
 .menu .menu-link:last-child {
   margin-bottom: 0;
@@ -432,9 +514,6 @@ body.elite .environment .column p:last-child {
 }
 .environment table textarea:focus {
   outline: none;
-}
-.environment table textarea.double-width {
-  width: 40em;
 }
 .environment p {
   font-size: 12pt;

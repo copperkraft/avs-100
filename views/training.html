@@ -54,7 +54,7 @@
             <input type="button" ng-show="progress.level > 1" ng-click="decrease()" value="<">
             </input>
             {{progress.level}}
-            <input type="button" ng-show="progress.finished[progress.level]" ng-click="increase()" value=">"></p>
+            <input type="button" ng-show="progress.finished[progress.level] && levels[progress.level + 1]" ng-click="increase()" value=">"></p>
         <p>{{levels[progress.level].description}}</p>
         <p class="number">{{levels[progress.level].specification}}</p>
     </div>
