@@ -1,6 +1,42 @@
 <ul class="menu">
-    <li class="menu-link">
-        <a ng-click="register('diomid', '1234')">Регистрация</a>
+    <li class="menu-link" ng-class="{'active' : selected == 'auth'}">
+        <a ng-click="selected = (selected == 'auth')?'':'auth'; checkSignIn(login, password)">
+            Вход
+        </a>
+        <ul class="menu" ng-show="selected == 'auth'">
+            <li class="menu-link" ng-class="">
+                <input ng-change="checkSignIn(login, password)" ng-model="login" placeholder="login">
+            </li>
+            <li class="menu-link">
+                <input ng-change="checkSignIn(login, password)" ng-model="password" placeholder="password">
+            </li>
+            <li class="menu-link">
+                <button ng-click="authorise(login, password)">{{signInTitle}}</button>
+            </li>
+        </ul>
+
+    </li>
+    <li class="menu-link" ng-class="{'active' : selected == 'registration'}">
+        <a ng-click="selected = (selected == 'registration')?'':'registration'; checkSignIn(login, password, true)">
+            Регистрация
+        </a>
+        <ul class="menu" ng-show="selected == 'registration'">
+            <form>
+                <li class="menu-link">
+                    <input ng-change="checkSignIn(login, password, true)" ng-model="login" placeholder="login">
+                </li>
+                <li class="menu-link">
+                    <input ng-change="checkSignIn(login, password, true)" ng-model="password" placeholder="password">
+                </li>
+                <li class="menu-link">
+                    <input ng-model="fullName" placeholder="ФИО">
+                </li>
+                <li class="menu-link">
+                    <button ng-click="register(login, password)">{{signInTitle}}</button>
+                </li>
+            </form>
+        </ul>
+
     </li>
     <li class="menu-link" ng-repeat="item in menuItems" ng-class="{disabled: !item.enabled}" >
         <a href="{{item.enabled? item.urlState : '#'}}">{{item.name}}</a>

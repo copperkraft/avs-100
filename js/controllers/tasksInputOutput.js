@@ -53,7 +53,7 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
         $scope.load();
         $scope.updateProgram();
         $scope.decrease = function () {
-            $scope.save();
+            $scope.save(true);
             $scope.proc.reset();
             $progress.level--;
             localStorage.progress = JSON.stringify($progress);
@@ -63,7 +63,7 @@ app.controller('tasksInputOutput', function ($scope, levelSRV, $progress) {
             $scope.updateProgram();
         };
         $scope.increase = function () {
-            $scope.save();
+            $scope.save(true);
             $scope.proc.reset();
             $progress.level++;
             localStorage.progress = JSON.stringify($progress);

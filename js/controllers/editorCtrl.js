@@ -1,6 +1,19 @@
-app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functions) {
-    $scope.save = function () {
+app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functions, $http) {
+    $scope.localSave = '';
+    $scope.lastDBSave = new Date();
+    $scope.save = function (force) {
+
         localStorage[$scope.localSave] = $scope.codeText;
+        var currentTime = new Date();
+
+
+        if (force || currentTime.getTime() - $scope.lastDBSave.getTime() > 1000) {
+            $http.post("php/AJAX_save_solution.php", {text: $scope.codeText, level: $scope.localSave}).success(function (answer) {
+                $scope.response = answer;
+                console.log(answer);
+            });
+            $scope.lastDBSave = new Date();
+        }
     };
     $scope.load = function () {
         if (localStorage[$scope.localSave]) {
@@ -8,8 +21,11 @@ app.controller('editorCtrl', function ($scope, $timeout, coreConstructor, functi
         } else {
             $scope.codeText = "//input code here";
         }
+        $http.post("php/AJAX_save_solution.php", {text: $scope.codeText, level: $scope.localSave}).success(function (answer) {
+            $scope.response = answer;
+            console.log(answer);
+        });
     };
-    $scope.localSave = '';
     $scope.changeLocalSave = function(name) {
         $scope.localSave = name;
     };

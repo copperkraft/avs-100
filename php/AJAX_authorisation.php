@@ -1,4 +1,5 @@
 <?php
+session_start();
 $answer = json_decode(file_get_contents('php://input'), true);
 $login = $answer['login'];
 $password = $answer['password'];
@@ -18,15 +19,15 @@ if (empty($login) || empty($password)) {
 } else {
     $result = mysqli_query($db, "SELECT * FROM users WHERE login='$login' AND password='$password'");
     $result = mysqli_fetch_assoc($result);
-    if (empty($result['id'])) {
+    if (empty($result['user_id'])) {
         echo "user do not exist or wrong password";
     }
     else {
         $_SESSION['login']=$result['login'];
-        $_SESSION['id']=$result['id'];
+        $_SESSION['user_id']=$result['user_id'];
         $_SESSION['rights']=$result['rights'];
 
         $login = $_SESSION['login'];
-        echo "success, user: $login";
+        echo "success";
     }
 }

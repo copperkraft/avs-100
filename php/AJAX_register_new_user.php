@@ -1,4 +1,5 @@
 <?php
+session_start();
 $answer = json_decode(file_get_contents('php://input'), true);
 $login = $answer['login'];
 $password = $answer['password'];
@@ -21,7 +22,7 @@ if (empty($login) || empty($password)) {
     echo "empty login or password";
     //не должна вызываться клиентом, так как должна быть предусмотрена проверка при регистрации
 } else {
-    $result = mysqli_query($db, "SELECT COUNT(id) as regId FROM users WHERE login='$login'");
+    $result = mysqli_query($db, "SELECT COUNT(user_id) as regId FROM users WHERE login='$login'");
     $regCount = mysqli_fetch_assoc($result);
     $regCount = $regCount['regId'];
     if ($regCount > 0) {

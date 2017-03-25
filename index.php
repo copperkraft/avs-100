@@ -1,40 +1,36 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="css/style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>AVS-100</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
     <link rel="icon" type="image/ico" href="favicon.ico" />
 </head>
 
-<body class="dark">
-<form action="php/testreg.php" method="post">
-    <ul class="menu">
-        <li class="menu-link">
-            <input placeholder="login" name="login" type="text" size="15" maxlength="15">
-        </li>
-        <li class="menu-link">
-            <input placeholder="password" name="password" type="password" size="15" maxlength="15">
-        </li>
-        <li class="menu-link">
-            <button type="submit" name="submit" >Войти</button>
-        </li>
-        <li class="menu-link">
-            <a href="php/reg.php">Зарегистрироваться</a>
-        </li>
-        <li class="menu-link">
-            <a href="app.php"><?php
-                if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-                    echo "Войти как гость<br>";
-                } else {
-                    echo "Продолжить как ".$_SESSION['login']."<br>";
-                }
-                ?></a>
-        </li>
-    </ul>
+<body ng-app="myApp" ng-controller="mainCtrl" ng-class="themes[currentTheme]">
+<ng-view ></ng-view>
+<script  src="js/mainModule.js"></script>
 
+<!--Controllers-->
+<script  src="js/controllers/mainCtrl.js"></script>
+<script  src="js/controllers/menuCtrl.js"></script>
+<script  src="js/controllers/editorCtrl.js"></script>
+<script  src="js/controllers/tasksInputOutput.js"></script>
+<script  src="js/controllers/consoleInput.js"></script>
+<script  src="js/controllers/settingsCtrl.js"></script>
+<script  src="js/controllers/referenceCtrl.js"></script>
+<script src="js/controllers/levelSelection.js"></script>
+<script src="js/controllers/singleLevel.controller.js"></script>
+<!--Core-->
+<script  src="js/services/coreConstructor.js"></script>
+<script  src="js/services/functionsDescriptions.js"></script>
+<script src="js/services/trainingLevels.service.js"></script>
+<script src="js/services/singleLevels.service.js"></script>
+<!--Filters-->
+<script  src="js/filters.js"></script>
+<!--Router-->
+<script src="js/router.js"></script>
 </body>
 </html>

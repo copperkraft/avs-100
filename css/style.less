@@ -1,18 +1,8 @@
-@water-background: #123;
-@water-border: #146;
-@water-button: #56f;
-@water-button-hover: lighten(desaturate(@water-button, 20%), 10%);
-@water-text-disable: desaturate(@water-text, 20%);
-@water-text: #fff;
-@water-number: #0bb;
-@water-on-index: #53a;
-@water-error: #e03;
-
 @light-background: #eee;
 @light-border: #777;
 @light-button: #bbb;
 @light-button-hover: lighten(@light-button, 10%);
-@light-text-disable: lighten(@light-text, 20%);
+@light-text-disable: lighten(@light-text, 30%);
 @light-text: #111;
 @light-number: #56f;
 @light-on-index: @light-button;
@@ -38,18 +28,17 @@
 @elite-on-index: #444;
 @elite-error: #f40;
 
-h1 {
-  color: @water-button;
-  background-color: @water-button-hover;
-}
+@menu-width: 15em;
+
+
 
 
 
 body {
+  font-size: 18px;
   margin: 0;
   .theme(dark);
   .theme(light);
-  .theme(water);
   .theme(elite);
 }
 .theme(@theme) {
@@ -97,8 +86,11 @@ body {
           color: e("@{@{theme}-text}");
         }
         input {
+          &::-webkit-input-placeholder {color: e("@{@{theme}-text-disable}");}
+          &::-moz-placeholder          {color: e("@{@{theme}-text-disable}");}/* Firefox 19+ */
+          &:-moz-placeholder           {color: e("@{@{theme}-text-disable}");}/* Firefox 18- */
           background-color: e("@{@{theme}-button-hover}");
-          color: e("@{@{theme}-text-disable}");
+          color: e("@{@{theme}-text}");
         }
         background-color: e("@{@{theme}-button}");
         &:hover {
@@ -107,6 +99,10 @@ body {
         &.disabled a{
           color: e("@{@{theme}-text-disable}");
           background-color: e("@{@{theme}-button}");
+        }
+        &.active a{
+          color: e("@{@{theme}-button}");
+          background-color: e("@{@{theme}-text}");
         }
       }
     }
@@ -168,37 +164,38 @@ body {
 }
 
 .menu {
-  ::-webkit-input-placeholder {color:#c0392b;}
-  ::-moz-placeholder          {color:#c0392b;}/* Firefox 19+ */
-  :-moz-placeholder           {color:#c0392b;}/* Firefox 18- */
-  :-ms-input-placeholder      {color:#c0392b;}
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Lucida Console","Arial",sans-serif;
   padding: 0.5em;
-  width: 20em;
-  margin: 5% auto;
+  width: 15em;
+  margin: 5% 5%;
+  ul {
+    position: absolute;
+    left: 17em;
+    top: 0;
+  }
   .menu-link {
+
     a, label, input{
       border: none;
-      font-size: 24px;
-      font-family: "Lucida Console","Arial",sans-serif;
+      font: inherit;
       display: block;
       height: 1em;
       text-decoration: none;
       padding: 0.5em;
-    }
-    input {
-      font-size: 24px;
-      width: 19em;
-      float: right;
+      width: 14em;
+
     }
     button {
+      &.wrong:hover{
+        content: attr(data-error); /* Выводим текст */
+        color: red;
+      }
       text-align: left;
-      font-size: 24px;
-      font-family: "Lucida Console","Arial",sans-serif;
+      font: inherit;
       border: none;
-      width: 100%;
-      height: 100%;
+      width: 15em;
+      height: 2em;
       &:focus{
         outline: none;
       }
